@@ -11,28 +11,34 @@ jobs:
       - name: Projekt laden
         uses: actions/checkout@v4
 
+      - name: Projekt ZIP entpacken
+        run: |
+          mkdir -p android-project
+          unzip -q BauPlaner_Pro_Online_Build_GitHub.zip -d android-project
+
       - name: Java einrichten
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
+      - name: Android einrichten
+        uses: android-actions/setup-android@v3
+
+      - name: Android SDK installieren
+        run: sdkmanager "platforms;android-36" "build-tools;35.0.0"
+
       - name: Gradle einrichten
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
 
-      - name: Android SDK einrichten
-        uses: android-actions/setup-android@v3
-
-      - name: SDK 36 installieren
-        run: sdkmanager "platforms;android-36" "build-tools;35.0.0"
-
       - name: BauPlaner Pro APK bauen
+        working-directory: android-project
         run: gradle :app:assembleDebug
 
       - name: APK bereitstellen
         uses: actions/upload-artifact@v4
         with:
           name: BauPlaner-Pro-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: android-project/app/build/outputs/apk/debug/app-debug.apk
