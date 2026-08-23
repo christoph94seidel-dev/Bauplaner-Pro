@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: BauPlaner-Pro-APK
-          path: android-project/BauPlaner_Pro_Online_Build_GitHub/app/build/outputs/...
+          path: '**/*.apk'
