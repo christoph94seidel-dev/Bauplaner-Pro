@@ -29,12 +29,12 @@ jobs:
         with:
           gradle-version: '8.13'
 
-      - name: Build APK
+      - name: Build AAB
         working-directory: android-project/BauPlaner_Pro_Online_Build_GitHub
-        run: gradle :app:assembleDebug
+        run: gradle :app:bundleRelease 
 
-      - name: Upload APK
+      - name: Upload AAB
         uses: actions/upload-artifact@v4
         with:
-          name: BauPlaner-Pro-APK
-          path: '**/*.apk'
+          name: BauPlaner-Pro-AAB
+          path: '**/*.aab'
