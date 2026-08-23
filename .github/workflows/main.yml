@@ -30,11 +30,11 @@ jobs:
           gradle-version: '8.13'
 
       - name: Build APK
-        working-directory: android-project
+        working-directory: android-project/BauPlaner_Pro_Online_Build_GitHub
         run: gradle :app:assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: BauPlaner-Pro-APK
-          path: android-project/app/build/outputs/apk/debug/app-debug.apk
+          path: android-project/BauPlaner_Pro_Online_Build_GitHub/app/build/outputs/...
