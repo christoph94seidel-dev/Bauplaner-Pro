@@ -1,61 +1,35 @@
-name: BauPlaner Pro AAB erstellen
+name: BauPlaner Pro - Signierschluessel erstellen
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  create-key:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout project
-        uses: actions/checkout@v4
-
-      - name: Extract Android project
-        run: |
-          mkdir -p android-project
-          unzip -q BauPlaner_Pro_v1.3_Billing_FIX.zip -d android-project
-          echo "Project extracted"
-          find android-project -maxdepth 3 -type f | head -50
-
-      - name: Set up Java
+      - name: Java einrichten
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.13'
-
-      - name: Build AAB
-        working-directory: android-project
-        run: gradle :app:bundleRelease
-
-      - name: Sign AAB
-        working-directory: android-project
-        env:
-          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+      - name: Neuen Signierschluessel erstellen
         run: |
-          CLEAN_SIGNING_KEY="$(printf '%s' "$SIGNING_KEY" | tr -d '\r\n ')"
-          CLEAN_SIGNING_PASSWORD="$(printf '%s' "$SIGNING_PASSWORD" | tr -d '\r\n')"
-          printf '%s' "$CLEAN_SIGNING_KEY" | base64 --decode > upload-keystore.p12
-          keytool -list -storetype PKCS12 -keystore upload-keystore.p12 -storepass "$CLEAN_SIGNING_PASSWORD" >/dev/null
-          jarsigner -verbose \
-            -storetype PKCS12 \
-            -sigalg SHA256withRSA \
-            -digestalg SHA-256 \
+          keytool -genkeypair \
+            -v \
             -keystore upload-keystore.p12 \
-            -storepass "$CLEAN_SIGNING_PASSWORD" \
-            -keypass "$CLEAN_SIGNING_PASSWORD" \
-            app/build/outputs/bundle/release/app-release.aab \
-            bauplaner-upload
-          jarsigner -verify -verbose -certs app/build/outputs/bundle/release/app-release.aab
+            -storetype PKCS12 \
+            -storepass "BauPlaner2026Pro" \
+            -keypass "BauPlaner2026Pro" \
+            -alias bauplaner \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=BauPlaner Pro, OU=Erdbau Seidel, O=Erdbau Seidel, C=DE"
 
-      - name: Upload AAB
+      - name: Signierschluessel bereitstellen
         uses: actions/upload-artifact@v4
         with:
-          name: BauPlaner-Pro-AAB-SIGNED
-          path: '**/*.aab'
+          name: bauplaner-upload-keystore
+          path: upload-keystore.p12
