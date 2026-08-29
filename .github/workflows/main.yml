@@ -39,14 +39,17 @@ jobs:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
         run: |
-          echo "$SIGNING_KEY" | base64 --decode > upload-keystore.p12
+          CLEAN_SIGNING_KEY="$(printf '%s' "$SIGNING_KEY" | tr -d '\r\n ')"
+          CLEAN_SIGNING_PASSWORD="$(printf '%s' "$SIGNING_PASSWORD" | tr -d '\r\n')"
+          printf '%s' "$CLEAN_SIGNING_KEY" | base64 --decode > upload-keystore.p12
+          keytool -list -storetype PKCS12 -keystore upload-keystore.p12 -storepass "$CLEAN_SIGNING_PASSWORD" >/dev/null
           jarsigner -verbose \
             -storetype PKCS12 \
             -sigalg SHA256withRSA \
             -digestalg SHA-256 \
             -keystore upload-keystore.p12 \
-            -storepass "$SIGNING_PASSWORD" \
-            -keypass "$SIGNING_PASSWORD" \
+            -storepass "$CLEAN_SIGNING_PASSWORD" \
+            -keypass "$CLEAN_SIGNING_PASSWORD" \
             app/build/outputs/bundle/release/app-release.aab \
             bauplaner-upload
           jarsigner -verify -verbose -certs app/build/outputs/bundle/release/app-release.aab
