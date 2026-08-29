@@ -30,7 +30,7 @@ jobs:
           gradle-version: '8.13'
 
       - name: Build AAB
-        working-directory: android-project.
+        working-directory: android-project
         run: gradle :app:bundleRelease 
 
       - name: Upload AAB
