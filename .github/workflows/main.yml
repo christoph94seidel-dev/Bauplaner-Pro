@@ -18,25 +18,27 @@ jobs:
           ZIP_FILE=$(find . -maxdepth 1 -type f -name 'BauPlaner_Pro_v1.3_Bil*.zip' | head -n 1)
 
           if [ -z "$ZIP_FILE" ]; then
-            echo "Keine passende BauPlaner ZIP-Datei gefunden."
+            echo "Keine BauPlaner ZIP gefunden."
             exit 1
           fi
 
           echo "Verwende: $ZIP_FILE"
 
-          mkdir -p android-project
+          rm -rf android-project
+          mkdir android-project
           unzip -q "$ZIP_FILE" -d android-project
 
-          GRADLEW=$(find android-project -type f -name gradlew | head -n 1)
+          SETTINGS_FILE=$(find android-project -type f \( -name "settings.gradle" -o -name "settings.gradle.kts" \) | head -n 1)
 
-          if [ -z "$GRADLEW" ]; then
-            echo "gradlew wurde nicht gefunden."
+          if [ -z "$SETTINGS_FILE" ]; then
+            echo "Keine settings.gradle oder settings.gradle.kts gefunden."
+            find android-project -maxdepth 4 -type f | sort
             exit 1
           fi
 
-          PROJECT_DIR=$(dirname "$GRADLEW")
-          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+          PROJECT_DIR=$(dirname "$SETTINGS_FILE")
 
+          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
           echo "Android-Projekt gefunden: $PROJECT_DIR"
 
       - name: Java einrichten
@@ -45,9 +47,10 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Gradle vorbereiten
-        run: |
-          chmod +x "$PROJECT_DIR/gradlew"
+      - name: Gradle einrichten
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
 
       - name: Signierschluessel wiederherstellen
         env:
@@ -69,9 +72,8 @@ jobs:
       - name: Release AAB bauen
         run: |
           set -e
-
           cd "$PROJECT_DIR"
-          ./gradlew bundleRelease
+          gradle :app:bundleRelease
 
       - name: AAB signieren
         env:
