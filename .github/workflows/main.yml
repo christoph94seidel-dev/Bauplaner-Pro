@@ -30,7 +30,7 @@ jobs:
           gradle-version: '8.13'
 
       - name: Build AAB
-        working-directory: android-project/BauPlaner_Pro_Online_Build_GitHub
+        working-directory: android-project.
         run: gradle :app:bundleRelease 
 
       - name: Upload AAB
