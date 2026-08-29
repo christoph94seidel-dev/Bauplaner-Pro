@@ -1,4 +1,4 @@
-name: Build BauPlaner Pro APK
+name: BauPlaner Pro AAB erstellen
 
 on:
   workflow_dispatch:
@@ -31,10 +31,28 @@ jobs:
 
       - name: Build AAB
         working-directory: android-project
-        run: gradle :app:bundleRelease 
+        run: gradle :app:bundleRelease
+
+      - name: Sign AAB
+        working-directory: android-project
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+        run: |
+          echo "$SIGNING_KEY" | base64 --decode > upload-keystore.p12
+          jarsigner -verbose \
+            -storetype PKCS12 \
+            -sigalg SHA256withRSA \
+            -digestalg SHA-256 \
+            -keystore upload-keystore.p12 \
+            -storepass "$SIGNING_PASSWORD" \
+            -keypass "$SIGNING_PASSWORD" \
+            app/build/outputs/bundle/release/app-release.aab \
+            bauplaner-upload
+          jarsigner -verify -verbose -certs app/build/outputs/bundle/release/app-release.aab
 
       - name: Upload AAB
         uses: actions/upload-artifact@v4
         with:
-          name: BauPlaner-Pro-AAB
+          name: BauPlaner-Pro-AAB-SIGNED
           path: '**/*.aab'
