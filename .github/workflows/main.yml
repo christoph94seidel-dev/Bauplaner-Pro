@@ -14,7 +14,7 @@ jobs:
       - name: Extract Android project
         run: |
           mkdir -p android-project
-          unzip -q BauPlaner_Pro_v1.3_Billing.zip -d android-project
+          unzip -q BauPlaner_Pro_v1.3_Billing_FIX.zip -d android-project
           echo "Project extracted"
           find android-project -maxdepth 3 -type f | head -50
 
