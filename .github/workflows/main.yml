@@ -1,4 +1,4 @@
-name: BauPlaner Pro - Signierschluessel erstellen
+name: BauPlaner Pro - neuen Signierschluessel erstellen
 
 on:
   workflow_dispatch:
@@ -14,22 +14,30 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - name: Neuen Signierschluessel erstellen
+      - name: Signierschluessel erstellen
+        env:
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
         run: |
+          set -euo pipefail
+
           keytool -genkeypair \
-            -v \
+            -noprompt \
             -keystore upload-keystore.p12 \
             -storetype PKCS12 \
-            -storepass "BauPlaner2026Pro" \
-            -keypass "BauPlaner2026Pro" \
-            -alias bauplaner \
+            -storepass "$SIGNING_PASSWORD" \
+            -keypass "$SIGNING_PASSWORD" \
+            -alias bauplaner-upload \
             -keyalg RSA \
             -keysize 2048 \
             -validity 10000 \
-            -dname "CN=BauPlaner Pro, OU=Erdbau Seidel, O=Erdbau Seidel, C=DE"
+            -dname "CN=BauPlaner Pro, OU=BauPlaner Pro, O=BauPlaner Pro, C=DE"
 
-      - name: Signierschluessel bereitstellen
+          base64 -w 0 upload-keystore.p12 > SIGNING_KEY.txt
+
+      - name: Dateien bereitstellen
         uses: actions/upload-artifact@v4
         with:
-          name: bauplaner-upload-keystore
-          path: upload-keystore.p12
+          name: bauplaner-signing-files
+          path: |
+            upload-keystore.p12
+            SIGNING_KEY.txt
