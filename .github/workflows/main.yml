@@ -1,43 +1,110 @@
-name: BauPlaner Pro - neuen Signierschluessel erstellen
+name: BauPlaner Pro AAB erstellen
 
 on:
   workflow_dispatch:
 
 jobs:
-  create-key:
+  build:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Projekt auschecken
+        uses: actions/checkout@v4
+
+      - name: Android-Projekt entpacken
+        run: |
+          set -e
+
+          ZIP_FILE=$(find . -maxdepth 1 -type f -name 'BauPlaner_Pro_v1.3_Bil*.zip' | head -n 1)
+
+          if [ -z "$ZIP_FILE" ]; then
+            echo "Keine passende BauPlaner ZIP-Datei gefunden."
+            exit 1
+          fi
+
+          echo "Verwende: $ZIP_FILE"
+
+          mkdir -p android-project
+          unzip -q "$ZIP_FILE" -d android-project
+
+          GRADLEW=$(find android-project -type f -name gradlew | head -n 1)
+
+          if [ -z "$GRADLEW" ]; then
+            echo "gradlew wurde nicht gefunden."
+            exit 1
+          fi
+
+          PROJECT_DIR=$(dirname "$GRADLEW")
+          echo "PROJECT_DIR=$PROJECT_DIR" >> "$GITHUB_ENV"
+
+          echo "Android-Projekt gefunden: $PROJECT_DIR"
+
       - name: Java einrichten
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      - name: Signierschluessel erstellen
+      - name: Gradle vorbereiten
+        run: |
+          chmod +x "$PROJECT_DIR/gradlew"
+
+      - name: Signierschluessel wiederherstellen
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+        run: |
+          set -e
+
+          printf '%s' "$SIGNING_KEY" | base64 --decode > upload-keystore.p12
+
+          keytool -list \
+            -storetype PKCS12 \
+            -keystore upload-keystore.p12 \
+            -storepass "$SIGNING_PASSWORD" \
+            -alias bauplaner-upload
+
+          echo "Signierschluessel erfolgreich geladen."
+
+      - name: Release AAB bauen
+        run: |
+          set -e
+
+          cd "$PROJECT_DIR"
+          ./gradlew bundleRelease
+
+      - name: AAB signieren
         env:
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
         run: |
-          set -euo pipefail
+          set -e
 
-          keytool -genkeypair \
-            -noprompt \
-            -keystore upload-keystore.p12 \
+          AAB_FILE=$(find "$PROJECT_DIR" -type f -path '*/build/outputs/bundle/release/*.aab' | head -n 1)
+
+          if [ -z "$AAB_FILE" ]; then
+            echo "Keine AAB-Datei gefunden."
+            exit 1
+          fi
+
+          echo "AAB gefunden: $AAB_FILE"
+
+          cp "$AAB_FILE" BauPlaner-Pro-release-signed.aab
+
+          jarsigner \
+            -verbose \
             -storetype PKCS12 \
+            -sigalg SHA256withRSA \
+            -digestalg SHA-256 \
+            -keystore upload-keystore.p12 \
             -storepass "$SIGNING_PASSWORD" \
             -keypass "$SIGNING_PASSWORD" \
-            -alias bauplaner-upload \
-            -keyalg RSA \
-            -keysize 2048 \
-            -validity 10000 \
-            -dname "CN=BauPlaner Pro, OU=BauPlaner Pro, O=BauPlaner Pro, C=DE"
+            BauPlaner-Pro-release-signed.aab \
+            bauplaner-upload
 
-          base64 -w 0 upload-keystore.p12 > SIGNING_KEY.txt
+          jarsigner -verify -verbose -certs BauPlaner-Pro-release-signed.aab
 
-      - name: Dateien bereitstellen
+      - name: Signiertes AAB bereitstellen
         uses: actions/upload-artifact@v4
         with:
-          name: bauplaner-signing-files
-          path: |
-            upload-keystore.p12
-            SIGNING_KEY.txt
+          name: BauPlaner-Pro-AAB-SIGNED
+          path: BauPlaner-Pro-release-signed.aab
