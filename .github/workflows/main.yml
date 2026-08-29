@@ -69,10 +69,11 @@ jobs:
 
           echo "Signierschluessel erfolgreich geladen."
 
-      - name: Release AAB bauen
+            - name: Release AAB bauen
         run: |
           set -e
           cd "$PROJECT_DIR"
+          echo "android.useAndroidX=true" >> gradle.properties
           gradle :app:bundleRelease
 
       - name: AAB signieren
