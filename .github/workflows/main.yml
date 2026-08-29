@@ -12,27 +12,27 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Android-Projekt entpacken
+        shell: bash
         run: |
           set -e
 
           ZIP_FILE=$(find . -maxdepth 1 -type f -name 'BauPlaner_Pro_v1.3_Bil*.zip' | head -n 1)
 
           if [ -z "$ZIP_FILE" ]; then
-            echo "Keine BauPlaner ZIP gefunden."
+            echo "Keine passende BauPlaner ZIP-Datei gefunden."
             exit 1
           fi
 
-          echo "Verwende: $ZIP_FILE"
+          echo "Verwende ZIP: $ZIP_FILE"
 
           rm -rf android-project
-          mkdir android-project
+          mkdir -p android-project
           unzip -q "$ZIP_FILE" -d android-project
 
           SETTINGS_FILE=$(find android-project -type f \( -name "settings.gradle" -o -name "settings.gradle.kts" \) | head -n 1)
 
           if [ -z "$SETTINGS_FILE" ]; then
-            echo "Keine settings.gradle oder settings.gradle.kts gefunden."
-            find android-project -maxdepth 4 -type f | sort
+            echo "Android-Projekt wurde nicht gefunden."
             exit 1
           fi
 
@@ -53,6 +53,7 @@ jobs:
           gradle-version: '8.13'
 
       - name: Signierschluessel wiederherstellen
+        shell: bash
         env:
           SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
@@ -69,14 +70,28 @@ jobs:
 
           echo "Signierschluessel erfolgreich geladen."
 
-       - name: Release AAB bauen
-         run: |
+      - name: Release AAB bauen
+        shell: bash
+        run: |
           set -e
+
           cd "$PROJECT_DIR"
-          echo "android.useAndroidX=true" >> gradle.properties
+
+          touch gradle.properties
+
+          if ! grep -q '^android.useAndroidX=' gradle.properties; then
+            echo "android.useAndroidX=true" >> gradle.properties
+          fi
+
+          if ! grep -q '^android.enableJetifier=' gradle.properties; then
+            echo "android.enableJetifier=true" >> gradle.properties
+          fi
+
+          echo "Starte Release-Build..."
           gradle :app:bundleRelease
 
-      - name: AAB signieren
+      - name: AAB finden und signieren
+        shell: bash
         env:
           SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
         run: |
@@ -85,7 +100,7 @@ jobs:
           AAB_FILE=$(find "$PROJECT_DIR" -type f -path '*/build/outputs/bundle/release/*.aab' | head -n 1)
 
           if [ -z "$AAB_FILE" ]; then
-            echo "Keine AAB-Datei gefunden."
+            echo "Keine erzeugte AAB-Datei gefunden."
             exit 1
           fi
 
@@ -111,3 +126,4 @@ jobs:
         with:
           name: BauPlaner-Pro-AAB-SIGNED
           path: BauPlaner-Pro-release-signed.aab
+          if-no-files-found: error
