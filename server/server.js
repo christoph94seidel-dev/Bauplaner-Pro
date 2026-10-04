@@ -13,7 +13,7 @@ const DB=path.join(__dirname,"invites.json");
 const ai=process.env.OPENAI_API_KEY?new OpenAI({apiKey:process.env.OPENAI_API_KEY}):null;
 
 app.use(express.json({limit:"50mb"}));
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, "..")));
 
 function loadDb(){try{return JSON.parse(fs.readFileSync(DB,"utf8"))}catch{return{}}}
 function saveDb(db){fs.writeFileSync(DB,JSON.stringify(db,null,2),"utf8")}
