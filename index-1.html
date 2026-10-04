@@ -1,0 +1,1715 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f28c00">
+<title>BauPlaner Pro – Baustelle & KI</title>
+
+<link rel="icon" type="image/png" href="data:image/png;base64,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8Txv0Ot37tixZs2aWDwWj8e1WTto/NYetKIoiiybTWbv4ODq1avR9YcVCASw38ALa343Pstqtfb19a1ZsyYQCGhNHaIoZmVlPf300waDAVRlLperuLgYBguHGY3GoaGh119//cCBA2heE0Vx586d7e3toijabLZVq1atWLECjPqaWVFV1e12Q/EYDIZDhw5JkoR58vjr9u3bk93kRCIxadKk7373uyUlJZcaDabT6ZAORS5xLAjQ5ccD4RGHw+EPP/ywtbXVZrMFg8HvfOc7SMzE4/Frrrlm2bJlsA54Ka1Wa0NDw9atW4eGhtBUKkmS2+3+/e9/393dnZGRceONN5aWlmrM3NjCffv27dixA0BjbZuR4MnPz585c+b69evnzp17ww036HS6YDCYnp6OSPDkyZObN28G89B9992HcKmnp0dRlDlz5ixcuFCn05WWlmqBtFal6e/vRyD51ltvSZL05JNP7tixA2rMZDLV19d3dnYWFBRAIGianjdv3tDQEHz8i7KCaInsSCQCNiMqCel7NQoQvnkwGFy9erUsyxhFqCiK3++PRCI2m23p0qVFRUXohNIIKD/++ONTp07p9XqbzfYf//EfAGoFg8FAIFBdXb1s2TKLxYLIWWM3e++999rb2xGij25yVVW1uLj45ptvrq2tjUajKHVhF3fs2LF//36DwWAwGARB6O/vR2iWnp5+/fXXl5eXRyIREAuNuCDGd7S3t2/atKmzs/PJJ5/U6/Vz5sw5efKk2WwWRXFgYKCurk4TIBRGEOLBSl40rwNMyPLly2traxOJBA676oqpI16dUCgEUg60RsiyHIlEysvLV6xYYTKZQO+lSVtdXd2BAwdycnLg38AHQjfFihUrZs+eLUmS3+/Py8srKCjAfpw4ceLEiRNwj0Y/bngbM2fOTE9PDwwFCSEUM9yGEYlEjh49qtfrIb5agayysnLp0qUmkykUCjEM43a79+/fP3v2bI0UHLmGffv27dq1i+d5p9M5ffp0WZYXLFjwzjvvYKrLXXfdZbfbRw+ER2fP4cOH4cgny1A0GnU6nffdd19WVhb4pjSv6yqNwrT8mNbaHYvFOI67++67q6urwboNLvcR0axm/jAwJSMjY+nSpfn5+dFoVBCErKysmpoaIEM070GjvLxUYS4ejzMcy7Asc76ggRGW8KsURXG5XNdcc43NZps6dWogEPB6vTjM5XLt2rWrvr7+iSeekCSJYZi+vr5XX3319OnTGP10zTXXYCLihAkTCgsLPR7PPffcgypEf38/GipganU63aeffrp169a5c+dCajVrqyjKxIkTq6ur7XY7UAyj87FXnQCpSUMIGIYZGhrKysq666677rjjDg3UkWz+tZ+RQ5JlORgMzpw5s7a2FvgvmqYnTZo0YcKEEX1So5O2WnkcaFGPxwPbISbEI0cOL5g3P/l4DKWfOXPm448/rv3e7XYfP348kUh8/PHHhw8f1ul0d911F/BDr7/+ekNDQ2ZmJsIlnU63bt26QCBQUVGxYsUKgKzRw+p2u7Vyst/v//DDD/v6+uBO/RmckqIURSkpKXG73Vq9TNOgl1EJXeZShvaiy7IMAqXrrrsO6bIR1l0L2TQzgcLZY489VlhY2NPTI4qi2Wz2+/2dnZ2TJ09OLmUnU1hoxmi4WYymQ6FQXV1dIpGw2+19fX1vvfVWSUkJ2jC0IHFoaKiqqmrRokXocYbsZmdnd3d3/+IXv/D7/Ziq3NfXl5ub6/F49u3b53Q6cbDJZNq2bdvGjRtvuOEGuM8syyKGMpvNvb29g4ODLpeLYZht27Z1dXXZbLZ4PN7Z2YkWES2liVQWRVMqIRSh0Hv5xf1GV0stDOJy9913l5aWDg0NgSbxCxKs2HXUp1asWEFRlM/nw9zCrVu3DgwMII2kvaPJXT7AQEKBgV/n9OnTiUTCarXu27dvz549Pp/vhz/8ofZBwAcuW7YMM6bgdmiexzvvvOPxeDApXEMBfPrpp263Oy0tDeonGAwWFxevWLECpQwNV2Qymfr6+l5//fVEIrFq1SpCSE5OzpkzZ5DUcLvdO3fuvOmmm7Rv3dzcHIvFVIro9fpgMHjO7dZKGVon61Uaxjscju9973uZmZlIFkuS1NXV1dfXhz5RtLNMmzYNvgKAxjfddNO8efPi8XgwGMzJyamsrHzmmWeOHz8OYMZvf/vbF198MXl0ARRPJBKZMmVKX1/f4OCgJEk+ny8UClksFoqi3nvvvebmZlmWa2pqFi5ciJcbw8Wvv/764uJiyGhTUxP0XFdXF3LW8P0pijIYDDBGn376KcAVwKNde+218+fPl2XZ7/drGQS9Xr9///5du3YlEondu3ffeeedNE1XVlZu2rQJvDBms/n//J//I0nSjBkzIpHI4OCgx+MBteig1/vaa699/x8exoshiuLl6mu+zAKkmRibzWYymaAbUG3+3e9+t2/fPg2P5/P5XnjhBUBIzWbzvffeO3XqVPgQUAm5ubkOh0OWZSCHGhsb33jjjQcffBAqgeM4gPduvfXWqqoqt9ut2QWXy9XW1rZ+/fpoNAqc0D//8z9rbGhwa/DGY/pOW1vb8ePHgb4FZwiYyDwezy233JKbm9vY2Njc3AyL5nK5Vq1adfvtt8diMY1lAYrw6aefhpnT6/WnTp1qamqqqKiora19++23AV1SFGXJkiWiKO7fvx9nsSxrNpsbGxvXrVuXnp6+ZMkSSI8kSZpevEqjMMAYNJTCunXr2tvbgSkDFniY3oUQQsjUqVN7enrgLycTPf/oRz86efJkMBjU6XQOh2P16tWzZ88uLy+HJsjOzr7//vtdLhfKBZAqlmWRXVQUJZFITJ48+Wc/+xm0CC4LfQagLRAj27ZtQ2APRw1I+IGBgRkzZjzyyCOEkK1bt0qSFI1Gp0yZct11102ZMkWn043uSywoKKirq8PGJxKJ7du3V1RUuFyun/70p48//rjD4bj99tszMjKQVNTeky1btuzdu5dhmKeeegodtMFg0Gw2X6U+kCZDeOJIzm7YsAHO4+DgIN48juOCwSC8TgzyCYVCiFPcbjfI5BRFsdvtjz766I9//GM863g8/uMf//jll1/OysoaN27cPffcg+wiaOdomh4YGNi8efOpU6cAQFu6dOnKlSuhe5JDP6gujuNaW1vXrVt37tw5q9WKujrkzGaz3Xfffd/97ndNJlNXV9eGDRsURbn++uunTJmiqiraVUd0X1AUtXz58nfffRck84IgrF+//lvf+pbL5aqurv7tb3/b1tYmy7LP50NDI8dxvb29H374YXd3d0FBwY9+9KM5c+agFBMMBi/vqIMx4URjHHo4HFYU5eabb0aMAw8RCh+zKfH0QVcI/6a/v19LpimKct111z3xxBOdnZ3o2QNZQlZW1vjx4wF91LDuQ0NDra2ts2bNeuCBBwoLC8vKyrTWsOSQmGGYgoICbH9ra+u8efM03hlJkmw2W2lpaXV1dVZWFi47MDBQW1s7ZcqU4uLiQCCQnp6ujekc8a0nTJjw93//98gdoG7f398Pvxv9GK2trUjHcxwXCoWOHDlSVVX1ne98Z968ednZ2TDura2tGRkZl3d+6uUE1SPgAp/tV6KwvJQpHLH9X3DK6JXcj3FRKf+C9QX3n4xJvdT7M+KLJPeNoLCDLukRd9vU1GSz2XJzcy9vS8LlFCBFUfAOARVPkhBVaJTRDtN8z5E8G5fulv8CObsU/dRflDbtJrUGMS29pB0Aifky74PGZKVpuy/5Cvn9fo/HY7fbofkubyb6MveFCYLQ1dVlsVgyMjJgX7Th8F6vFxidrKwsYIG1F1rbbJ/PNzQ0BLAO9gCYZTR7jBAOm82Gc4PBIIZXIBUEO6WB8P1+Pzx0XBCQIKfTCQIejuMwK07LpF9UVvr6+lDXw8sQjUbNZjPcXi05CffcarVqLM84C6F+LBYDyfDwtEZBAL4FZGQ5OTmXkZFjDDnRAEK0tLSg04VhmPb29o8++qihoQEc7CtWrCgrK6MoKiMjIycnR5s6AIuzefPm3/zmN06nE0FyNBrNyckBbB7lVVT429vbu7u7//3f/x3buW/fvv/4j//AaHeHw7Fy5crc3FxIIcuyb7311po1a5CJRiLnuuuuu+aaa9APBCcMMI/JkyfDGRrhhaiq+i//8i9tbW1wycG+sGLFCqPRqF3EarUePnzY5/M988wzmhz89Kc/bW9vNxgMwWDQ4XD86le/Ak1Mb28vnDyLxVJcXAxRTs1MHbYmXq/XYDDAxr/33nsvvfQSei7HjRt3yy23OJ1OjHr0+Xxom6qurtYcW62Ihn2qqam5/vrraYpOiAlYFpvNduLEibVr106cOFErhmDWSTgcRnUCAbmWi8OJ4OWwWCzLly8vLS2NRqOwXGaz+fDhw8gbVVdX/8M//ENVVdVo+getlUwQhLlz5y5cuBBtZWgGoijqs88+2759+6xZs7Rsp4Zf8/v9kydPXrx4MWrGkJXk1sExIjpjQoBA0IwU8wcffPDss89iTnFNTc0NN9yAHAleOKvVeuTIkXXr1hUVFb366qua2gcJBk3Tt912W3V1dSQSkSiZoimdTkdUsmnTJtA9J7cMI7t4yy23VFZWRqNRjUBjRHG+vLz8xhtvNBqNwETzPM/z/K5du3bv3o12xKNHj/7whz/8wQ9+cMsttyDRd+Gxsmw8Hne5XLfddltZWRkQhgC2+v3+devWdXd3m81mzW3XcsqiKC5btmzOnDl+v1+Dj2kRIrncEPoxJEBa/dlgMOj1+r6+vpdeegl+yZIlS6ZOnarBWPHLbdu21dfX0zR9++23A9pMzlNbwkC4XK5QKCSrCiyRu7Nz3Ufruru77XZ7KBSCGtMqJ9/97nfHjRuHXLbBYEjeEui/m266acaMGcg5aZpyy5Yt7e3taWlp4GV2OByCIPziF7/Q6/U33XRTcmMrJr3feuutsEea91ZXV7du3TpJkkwm0+DgoDYXHEbZ5XLNnz+/uLgYN6bBq7UvS8beuswaKBwOO51OQsj6DRv6zp1bMH/+/Pnz7XZ7LBYrLi5GhB+NRl999dWtW7fyPL9ixYqVK1dqYbMsy9OnT7/7W99SZDkSjVAUnZeXx3GcJEkD/Z4lS5YgbZNIJPLz8zXNn56e7nQ6I5EI4D7RaBTVXG1MzgMPPDB58mRsPEZh8jzf2NhYXl5uNBpbWlpYlgXSzWQy/f3f/70sy62trePHj9dSRIsXLwbkFB2S6enpDodjcHCws7Pzvvvu43keNAn5+flanK+q6pIlSyRJCoVDFKE0kEYyA2RKgEZmQSiKMplMsiyfc5978DsPVlVVCdFYMBisqqoCAgvrn/7pn6ZNm7Z79+4nnngiWY1XVlba7XZRFCVJVAnR63VVkytB0T1rxswvSPnE43F0ttfV1R07duzGG2/UbmnKlCktZ1uGwiGaZRKJRE5ODlqeS0pK7rjjDlEU6+rqXnrppTNnzkycOHHJkiWgXz116lR2djY+mqbp4pLxAb9fJYRlGJZl8/LywIOJ7uxLVQZlVYknBIamDQaD3+/3+Xw5OTmXfbD3XyhoXt6P53kean/BggVlZWWhUEhKaobSjJ3dbl+1atWLL74IEpbkFHYsGlUVRaWIxWLp7uoePT1UG6mRLEA6nY6m6XXr1q1bt25EGjAajYoJERdXFMXd70Y0B7PFcdw111zz7LPP3nnnnXfeeSdCOdRZBwYGNE9FEARJljmONxgMn+7Y0dnZSUbRTI24Ky28N5nNAwMDr776qsfjIefHGKQE6JLKAK6DntdFo1GaohRFsdls27dv/7d/+7cNGzZ0dnZqz11LoiSrMZUQhmWNesP2bds+/OCDcDgcCoWA0/B4PIFAAN2oySKi0+l8Pt8f//jHxsbGZOBY8l6aDMahYPD1117v7urWUG/weWVZdjqdDz30UDwe1yBjAwMDO3bs0Hw7RVaMRqMgxN9+5+3tO3YIggAuGwBhL3pXCA9NRlP9obrVq1f7/X4N5ZMyYZd0osHxy3FcXl5eZ2cno9PrdfrPPvtsz549kiRt2rTJarWOGzcOUIcpU6aMJkU0m83hUGjdunWdnZ0mk+mRRx7R2FWLiooAyBo/fjwwiuQ8r+rrr78OfhaM4RlhSsxmc0NDw47t2we9Xm20b/I2g1PG6XT6fD5g4NeuXTt58uSHHnoIgm61WI4ePbpp06ZINJqZlfmb559/8cUXgaJMS0u75ZZbTCZTYWEhUgAXgHUJcf369SdOnMBUeSgerQE8JUAXWYABWSyW3NzcoqKikydPHjhwAHgaLTXS0NDQ39+PYArD4TWFYTAYOjo6PvnkE3T7wrlBH/v8+fPnz58PCOIIGnK/34/eZ5QkR0Q3iqJs2LDh+PHjZrMZcJ+L3jnDMGlpaT6fb/PmzfX19cgmaMSdO3fu3Lx5s9FoNBgNiqIICSEmybFYrLy8HF1H4IQYccENGzYcO3YMaPlkwUqZsIs70XiPgfKkaXrWrFnRaLS+vh5WH+FMKBS69tpr//Ef/zErK8vtdu/bt0+LigkhJ06cePPNN0HSC8oVQRDMZvN99913/fXXJxfRkj8atATan+JCPDktefDgwYMHDwKmONpoJguiIAirV68+dOgQtJSmMDBnLrmLFMcvXbr07rvvNplMqFeMTj6BEVbLjl60oSAlQGTEXtrtdniLhJBHH330lVdemTNnDsuyfr9fVdU77rhj+fLlmBin0+ni8bjb7dbcAp/PB7lB/RK8yQ8++GBRUVH4PL/9CGZCcr7ETdO0KEnReKyqqlobbkLOz5j64loBDj59+nRPT49WCU4eXAoHnBDC0kw0HNHx/D333DN37ly0lSHlqPGEJFtPLfWF5u5ko3l5O1DHognD9tjt9lOnTmFOOyDJNTU1AwMDJ0+e1Ov1iG5QqDIajYIg/Pd///ePf/xjdIJq45gw22vp0qXf//73cXAyrwW2NlkaGIaJRKMGo+HW226dOHFiMuhCG+dLCBltaJIF6NixY0ajEY1gkUiksLAQXwFyAMUTDodLS0sff/zxiRMnhkIhzG6GloJYjCApwz8DgcDkyZMxTO6ic+9TAnTBj+7v70cpXqtqIdeHlEkkEmlvbwcTT0tLy5YtW7q7u++///6cnBytaBCJROx2O4pWBoNhtNs7OrAPhULTZ8xYcuMSs9kciURGbA9uJhqNLlq0CKDYZHEEBrmxsfHgwYMYhhoMBidOnAguB+2LgJRj6dKlNTU1LpeL53kQM37B04DioWl6+fLl1dXVQObDznZ0dCSX6nie//JzgL/JGghNzeDr9/l8LS0ts2fPTo7YDQbD5MmTY7HYG2+8ceTIEZ1Op5kMHBaJRKZNm3bDkiUsx6IJ+qIewwg4UW1t7bLly+PxOCYlJldDKYoCYvXOO+8sLi4GFFpD+aDO2tTU9POf/5xlWVSvamtr586di5Q6VigUyszMvP3223Nycnw+H3qDRpcjkv0zQDgyMjLuvPPO7Oxsn8+H2qqqqiBmTP7WXq+3ubm5pKTk8sIRL38YD/WDx/enP/1pz549P//5z4uKipLHK6mq+s477+zduzcjIwN1CY2R1GAw3HrrrQsWLAjHInh30cf+BZ9ICCkrLyeExKJRhQwHTcn7iqFx9957r9Vq9fl8MEnaNT0ez8aNG99++21U1y0Wy1133VVYWIjkEL5IIpGYMWMGumMBLeI47lKhuCa7IOuEyKIWlgxMSz5dVdX8/HyPx+N2uzXerauxlIFgBE0Fhw8fPnr06IMPPtjc3Awgs8VicTgcAwMDb7755v79+9PT00Hnk5GRATgHRVHV1dUmkykcDiuqguaNX/7ylwAaa2oMVDpFRUVPPPHE8K5QFCgNVEUBJSM8dGzDtGnTCgsLcVngkbdv337w4EGe58+dO9fU1OTz+cAWVVFRsWzZMr1eHwgEZsyYodG70DQ9e/Zsn88HTJLJZDp+/PjLL7+Mmrzm6ODGHnvsMcyVwkejfQBMePv37z906JDmO2vjz5544omcnBwU1/6fElWPdRMGXYK+0k2bNt12220sy6oUkRWlp69Xz+vefPNNDOAFwpBl2cHBwdtvv91sNiOWkSQpFo1xPKfjdbIsb/h4/eHDh7VoSHt3vV4v6JU1ghjshNVsaWhsqK+rv2Hx9dpdOZ3OwcFB6DOTybR79+5NmzYB3A6eIXRl1NbWLliwQBCEoaGhsrKy4uJiNWmcL4wgEl39/f1r164F/j9ZetBT8e1vf1vTjtqYXzR4fPTRR4ODg8nNBTjloYceQosBnt7V6wPxPI9itV6vr62tBaU3oQiirY8++qi5udloNCKcYRjG7/dXV1ffd999yT3hKlFtNlt3V9eGjRv7+/uTHVVICabH3XnnnRotHHrN9Hr9tm3b9u7dm5OTk+xJwNswGAyJRAJJQqPRqPGBoJP1tttuKykpCQaDiqKUlZVVV1drt5Q8zQ7os23btiEs0NwgpDcBLkiedQrvWK/X79u3b+fOnQzDaEzFNE2DPejuu+9GBAqrd1UPWwEHmc/nczqdM2bMOHnyZFdXlyxLzU3NmzZtCodCIANEZlmSpDlz5vzkJz/BHGQ8Nbyvu3bt2r59O0qkMBPJgykWLlw4c+ZM7T1Gwsbn861fv76rq0uDmSaX5xiG6erqQhcYaIGx64lEorS0dNmyZUaj0efzYc5Gfn4+Nri7u9tms6Hci/Ex69ata2xsxDug9bXhOgUFBTfddJPD4UjOBrEsGwgE3nrrrdOnT2OAofZX2O6bb745NzdXG2I/YhzHVecDwRlsbW3V6/VGo3Hq1KnFxcXd3d31dfU2q1Wv0+G11ul0hYWFixYtWrJkiRbuYsv1en1bW1tHR0d1dXWyezE8fI5h5syZA1WR3D0ei8UOHz7scDhycnKAC0veD5qm3W73sWPHMjIy8vPzNWYPRVEqKipmzpyJJhtgtLUJvV1dXZFIRKfTwf2XZbmurk5VVXQAJrfoi6I4bty4+fPngyIimaJVkqRDhw6h4K9168LWZ2VlLV68mGXZoaEhjZ+EjAGA4mXuysB2dnR05OTkaIxJeGQoccDWJA+jFAQB1IIaZ9QXd4Yj0acZAkJIPB7XXOYRoRBkKBkifdGrJZ8bCoV6enpcLldaWlp7eztSEhi98AXubXIpXhMC4He/IP2NNwTvRiQS8fl8yUC5q06AtOeC5h6O47KysrQe+Is+9IGBgXA4bLPZMNP5q5apkdG5aO5EURSfz4f5Jl/yapiYGY1Gc3Nz4SSBpgjYsa8aT3wlhg1Jkjo6OrKzs/G5V6kGGpGewQxARDo8z2t6BbmfWCwGTsnMzEw41B6Px+l0avMoR8S6yaoFiLBYLAaGSp1Ohyl3Wg0VF9caltEHPaL2lExKjJo/4JSwgFqBoqOjA2YxuWQ7+stqLpooiuANJoQYjUae57WzkmHRyYMyY7EYEpUad/ZVLUAjFuh/4vG4FjShLg1CDG3XYcswcYJcDBGmeQlQ+3Cx4YCHQiF02GAL4YlbrVae50VRhHCMuNqIvUSEP1pnwGmLRCLacN0R0zZHz71Hjc9iscBqJ581osqhCRDLshaLBQXgyx7GU2MccntZdGFqXdkCdNFbutTA0a8a+n2Z63+Zy36xqH2lG/saUy/GjqCnNFBq/VWLTj2C1EoJUGqlBCi1UgKUWikBSq3USglQaqUEKLVSApRaKQFKrdRKCVBqpQQotVIClFopAUqt1EoJUGqlBCi1UgKUWikBSq3USglQaqUEKLVSApRaKQFKrZQApVZqpQQotVIClFopAUqtq2f9/9WKNjCQvqHLAAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<style>
+:root{--o:#f28c00;--d:#202124;--bg:#f2f2f2;--c:#fff;--mut:#686868;--line:#ddd;--ok:#e9f7ec;--warn:#fff3d5}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#222}
+header{background:var(--d);color:white;padding:14px 16px;position:sticky;top:0;z-index:20}header b{font-size:20px}header small{display:block;color:#ccc;margin-top:2px}
+main{max-width:980px;margin:auto;padding:12px}.card{background:var(--c);border-radius:14px;padding:15px;margin-bottom:12px;box-shadow:0 2px 10px #0001}
+h2{font-size:19px;margin:0 0 12px}h3{font-size:16px;margin:0 0 10px}.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+button{border:0;border-radius:10px;padding:12px;font-size:15px;font-weight:700;cursor:pointer}.orange{background:var(--o);color:#111}.dark{background:var(--d);color:#fff}.gray{background:#e8e8e8}.danger{background:#f3dada}.wide{width:100%;margin-top:8px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #ccc;border-radius:9px;font-size:16px;background:#fff}textarea{min-height:105px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:700;margin-bottom:4px}.hidden{display:none}.back{margin-bottom:10px}
+.note{font-size:12px;color:var(--mut);line-height:1.45}.chat{background:#f7f7f7;border-radius:10px;padding:12px;white-space:pre-wrap;line-height:1.45}.success{background:var(--ok)}.warning{background:var(--warn)}
+.project,.asset,.person{border:1px solid #eee;border-radius:10px;padding:11px;margin:8px 0;background:#fafafa}.project b,.asset b,.person b{font-size:16px}
+.results{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.result{padding:11px;border:1px solid #eee;border-radius:10px;background:#fafafa}.result b{font-size:20px;display:block}.result small{color:var(--mut)}
+.photo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.photo-card{border:1px solid #eee;border-radius:10px;padding:8px}.photo-card img,.thumb{width:100%;height:170px;object-fit:cover;border-radius:8px}
+.row{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #eee;padding:7px 0}.row:last-child{border:0}.badge{display:inline-block;padding:4px 8px;border-radius:999px;background:#eee;font-size:12px;margin:2px}
+#viewer{height:400px;background:#e3e3e3;border-radius:12px;overflow:hidden;touch-action:none}#viewer canvas{width:100%;height:100%;display:block}
+@media(max-width:620px){.menu,.grid,.photo-grid,.results,.quick{grid-template-columns:1fr}.full{grid-column:auto}#viewer{height:320px}}
+
+.app-brand{display:flex;align-items:center;gap:10px}
+.app-logo{width:48px;height:48px;object-fit:contain;background:#fff;border-radius:10px;padding:3px}
+.app-brand-text b{display:block}
+.app-brand-text small{display:block}
+
+
+.bp-icon{width:48px;height:48px;border-radius:12px;background:#f28c00;color:#202124;display:grid;place-items:center;font-weight:900;font-size:19px;letter-spacing:-1px;flex:0 0 auto}
+.app-brand{display:flex;align-items:center;gap:10px}
+.app-brand-text b{display:block;font-size:20px}
+.app-brand-text small{display:block}
+.product-chip{display:inline-block;background:#f28c00;color:#202124;border-radius:999px;padding:4px 9px;font-size:12px;font-weight:800}
+
+</style>
+</head>
+<body>
+<header>
+<div class="app-brand">
+<div class="bp-icon">BP</div>
+<div class="app-brand-text">
+<b>BauPlaner Pro</b>
+<small>Baustelle · KI · Aufmaß · Team · Fuhrpark</small>
+</div>
+</div>
+</header>
+<main>
+
+<section id="home">
+<div class="card">
+<span class="product-chip">BauPlaner Pro 1.3.2</span> <span class="badge" id="licenseBadge">FREE</span>
+<h2 style="margin-top:10px">Dein digitaler Baustellen-Assistent</h2>
+<p class="note">Projekte, Fotos, KI-Problemlöser, automatische Kalkulation, Angebote, GPS-Aufmaß, 3D/Draufsicht, Personal, Fuhrpark und Mitarbeiterzugang in einer App.</p>
+<div class="card" id="proCard"><h2>⭐ BauPlaner Pro</h2><div id="proStatus" class="chat">Abo-Status wird geprüft…</div><button class="wide orange" id="buyProButton" onclick="AndroidBilling.buyMonthly()">Pro freischalten – 9,99 € / Monat</button><button class="wide gray" onclick="AndroidBilling.restorePurchases()">Käufe wiederherstellen</button><p class="note"><b>Kostenlos:</b> bis zu 3 Baustellen, Fotos/Maße, GPS-Aufmaß sowie grundlegende Firmen-, Fuhrpark- und Personaldaten. <b>Pro:</b> unbegrenzt Baustellen, 3D/Draufsicht, KI, automatische Kalkulation, Angebote, Zeiten, Zuordnungen und Mitarbeiterzugänge. Abrechnung und Kündigung über Google Play.</p></div>
+</div>
+<div class="card"><h2>Was möchtest du machen?</h2>
+<div class="menu">
+<button class="orange" data-page="projects">📁<br>Baustellen</button>
+<button class="orange" data-page="company">🏢<br>Meine Firma</button>
+<button class="dark" data-page="assignments">📍<br>Wo ist was? ⭐</button>
+<button class="orange" data-page="times">⏱️<br>Zeiten ⭐</button>
+<button class="dark" data-page="survey">📡<br>Aufmaß / GPS</button>
+<button class="dark" data-page="offer">🧾<br>Angebot ⭐</button>
+<button class="orange" data-page="autocalc">🧠<br>KI-Kalkulation ⭐</button>
+<button class="dark" data-page="ai">🤖<br>KI Problem lösen ⭐</button>
+</div></div>
+<div class="card"><h2>Aktuelle Baustelle</h2><div id="homeProject" class="chat">Keine Baustelle ausgewählt.</div>
+<div class="quick">
+<button class="gray" data-page="photos">📸 Bilder</button>
+<button class="gray" data-page="planner">🏗️ 3D ⭐</button>
+<button class="gray" data-page="offer">🧾 Angebot ⭐</button>
+</div></div>
+</section>
+
+<section id="projects" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card"><h2>📁 Neue Baustelle</h2>
+<div class="grid">
+<div class="full"><label>Projektname</label><input id="projName" placeholder="z. B. Einfahrt Frau Müller"></div>
+<div><label>Kunde</label><input id="customer" placeholder="Frau Müller"></div>
+<div><label>Ort / Adresse</label><input id="location" placeholder="z. B. Reichenbach, Musterstraße 1"></div>
+<div><label>Breitengrad (optional)</label><input id="projectLat" type="number" step="0.000001" placeholder="GPS"></div>
+<div><label>Längengrad (optional)</label><input id="projectLon" type="number" step="0.000001" placeholder="GPS"></div>
+<div class="full"><button class="gray wide" id="useCurrentLocation">📍 Aktuelle GPS-Position als Baustelle verwenden</button></div>
+<div><label>Telefon</label><input id="phone" placeholder="optional"></div>
+<div><label>E-Mail</label><input id="email" placeholder="optional"></div>
+<div class="full"><label>Beschreibung</label><textarea id="description" placeholder="Was soll gemacht werden?"></textarea></div>
+</div>
+<button class="wide orange" id="newProject">Baustelle anlegen</button>
+</div>
+
+<div class="card">
+<h2>👷🚜 Eingeteilt auf dieser Baustelle</h2>
+<div id="projectAssignments" class="chat">Bitte eine Baustelle öffnen.</div>
+
+<div class="grid" style="margin-top:10px">
+<div>
+<label>Gerät hinzufügen / ändern</label>
+<select id="projectAssignAsset"></select>
+<button class="wide gray" id="projectAssignAssetBtn">Gerät zuordnen</button>
+</div>
+<div>
+<label>Mitarbeiter hinzufügen / ändern</label>
+<select id="projectAssignPerson"></select>
+<button class="wide gray" id="projectAssignPersonBtn">Mitarbeiter zuordnen</button>
+</div>
+</div>
+</div>
+
+<div class="card"><h2>🗺️ Baustellenkarte</h2>
+<div id="projectMapInfo" class="chat">Baustelle öffnen, um Karte anzuzeigen.</div>
+<iframe id="projectMap" title="Baustellenkarte" style="width:100%;height:320px;border:0;border-radius:10px;margin-top:10px" loading="lazy"></iframe>
+<div class="quick" style="margin-top:10px">
+<button class="gray" id="openMaps">🗺️ In Google Maps öffnen</button>
+<button class="orange" id="navigateMaps">➡️ Navigation starten</button>
+</div>
+</div>
+<div class="card"><h2>Gespeicherte Baustellen</h2><div id="projectList"></div></div>
+</section>
+
+<section id="photos" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card"><h2>📸 Bilder zur Baustelle</h2>
+<input id="photoInput" type="file" accept="image/*" multiple>
+<p class="note">Du kannst vorhandene Bilder aus der Galerie auswählen. Je nach Handy wird zusätzlich auch die Kamera angeboten.</p>
+<textarea id="photoNote" placeholder="Notiz oder Problem zum Bild"></textarea>
+<button class="wide orange" id="addPhotos">Bilder speichern</button>
+</div>
+<div class="card"><div id="photoGallery" class="photo-grid"></div></div>
+<div class="card">
+<h2>🤖 Problem mit Foto lösen</h2>
+<p class="note">Beispiel: Hang fotografieren → beschreiben, was entstehen soll → Vorschläge für Ausführung, Maschinen, Material, Maße und Risiken erhalten.</p>
+<label>Welches Foto?</label>
+<select id="analysisPhoto"></select>
+<label style="margin-top:10px">Was möchtest du dort machen?</label>
+<textarea id="photoGoal" placeholder="z. B. Den Hang 1,5 m zurücknehmen und unten eine ebene Fläche für eine Gartenhütte herstellen."></textarea>
+<label>Was ist dir wichtig?</label>
+<textarea id="photoConstraints" placeholder="z. B. Zufahrt nur mit Minibagger, wenig Platz, Aushub soll auf dem Grundstück bleiben."></textarea>
+<button class="wide dark" id="photoSolve">🤖 Vorschläge erstellen</button>
+<div id="photoSolution" class="chat" style="margin-top:10px">Noch keine Analyse.</div>
+</div>
+</section>
+
+<section id="planner" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card"><h2>🏗️ 3D-Modell zur Baustelle</h2>
+<div class="grid">
+<div><label>Typ</label><select id="planType">
+<option value="shed">Gartenhütte / Gebäude</option>
+<option value="trench">Graben</option>
+<option value="slab">Bodenplatte / Fläche</option>
+<option value="wall">Stützwand / Mauer</option>
+<option value="manhole">Schacht</option>
+<option value="path">Weg / Zufahrt</option>
+<option value="slope">Hang / Böschung</option>
+<option value="pipe">Rohrleitung</option>
+<option value="drain">Drainage</option>
+<option value="foundation">Fundament</option>
+<option value="parking">Stellplatz</option>
+<option value="road">Straße / Fahrbahn</option>
+<option value="fence">Zaun</option>
+<option value="tree">Baum / Hindernis</option>
+<option value="pond">Teich / Mulde</option>
+</select></div>
+<div><label>Länge m</label><input id="pL" type="number" value="4" step=".1"></div>
+<div><label>Breite m</label><input id="pB" type="number" value="3" step=".1"></div>
+<div><label>Tiefe / Aushub cm</label><input id="pD" type="number" value="30"></div>
+<div><label>Höhe m</label><input id="pH" type="number" value="2.4" step=".1"></div>
+<div><label>Frostschutz cm</label><input id="pF" type="number" value="20"></div>
+<div><label>Beton / Aufbau cm</label><input id="pC" type="number" value="15"></div>
+</div>
+<div class="card" style="box-shadow:none;border:1px solid #eee;margin-top:12px">
+<h3>🧭 Draufsicht einzeichnen</h3>
+<div class="grid">
+<div><label>Objekt</label><select id="topObject">
+<option value="house">Haus / Hütte</option>
+<option value="trench">Graben</option>
+<option value="area">Fläche / Platte</option>
+<option value="wall">Mauer / Stützwand</option>
+<option value="manhole">Schacht</option>
+<option value="path">Weg / Zufahrt</option>
+<option value="slope">Hang / Böschung</option>
+<option value="pipe">Rohrleitung</option>
+<option value="drain">Drainage</option>
+<option value="foundation">Fundament</option>
+<option value="parking">Stellplatz</option>
+<option value="road">Straße</option>
+<option value="fence">Zaun</option>
+<option value="tree">Baum / Hindernis</option>
+<option value="pond">Teich / Mulde</option>
+</select></div>
+<div><label>Bezeichnung</label><input id="topLabel" placeholder="z. B. Garage"></div>
+<div><label>Länge m</label><input id="topL" type="number" value="4" step=".1"></div>
+<div><label>Breite m</label><input id="topB" type="number" value="3" step=".1"></div>
+<div><label>Drehung °</label><input id="topRot" type="number" value="0" step="5"></div>
+<div><label>Höhe / Tiefe m</label><input id="topH" type="number" value="0.5" step=".1"></div>
+
+</div>
+<p class="note">Auf freie Fläche tippen = Objekt platzieren. Objekt antippen = auswählen. Ausgewähltes Objekt mit dem Finger verschieben. Mit den Buttons kannst du es drehen oder löschen.</p>
+<canvas id="topCanvas" style="width:100%;height:360px;background:#f8f8f8;border:1px solid #ddd;border-radius:10px;touch-action:none"></canvas>
+<div class="quick" style="margin-top:8px">
+<button class="gray" id="rotateTopLeft">↶ 15°</button><button class="gray" id="rotateTopRight">↷ 15°</button><button class="gray" id="deleteTopObject">Auswahl löschen</button>
+<button class="gray" id="clearTopPlan">Plan leeren</button>
+<button class="orange" id="saveTopPlan">Draufsicht speichern</button>
+</div>
+</div>
+<div id="viewer" style="margin-top:10px"><canvas id="cv"></canvas></div>
+<button class="wide orange" id="savePlan">3D-Modell speichern</button>
+<div id="planResult" class="chat" style="margin-top:10px"></div>
+</div>
+</section>
+
+
+<section id="autocalc" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+
+<div class="card">
+<h2>🧠 Automatische Baustellen-Kalkulation</h2>
+<div id="autoProjectInfo" class="chat"></div>
+<label style="margin-top:10px">Was soll gemacht werden?</label>
+<textarea id="autoDescription" placeholder="z. B. 120 m² Einfahrt, 40 cm auskoffern, Aushub abfahren, 30 cm Frostschutz einbauen und verdichten, 5 cm Splitt und Pflaster herstellen."></textarea>
+
+<div class="grid">
+<div><label>Fläche m² (falls bekannt)</label><input id="autoArea" type="number" step=".01"></div>
+<div><label>Aushubtiefe cm</label><input id="autoDepth" type="number" step=".1"></div>
+<div><label>Frostschutz cm</label><input id="autoFS" type="number" step=".1"></div>
+<div><label>Splitt cm</label><input id="autoSplitt" type="number" step=".1"></div>
+<div><label>Entfernung einfache Strecke km</label><input id="autoKm" type="number" step=".1"></div>
+<div><label>LKW-Nutzlast t</label><input id="autoPayload" type="number" step=".1" value="7.5"></div>
+<div><label>Preisniveau</label><select id="autoPriceLevel"><option value="0.9">günstig</option><option value="1" selected>marktüblich</option><option value="1.15">hoch / schwierige Baustelle</option></select></div>
+<div class="full"><label>KI-Server für Bildanalyse (optional)</label><input id="autoAiEndpoint" value="https://bauplaner-pro.onrender.com/api/estimate" readonly></div>
+</div>
+
+<button class="wide orange" id="generateCalc">Kalkulation automatisch erstellen</button>
+<p class="note">Die App liest Maße auch aus der Beschreibung und berechnet Materialmengen deterministisch. Fehlende Pflichtmaße werden angezeigt statt erfunden. Mit KI-Server werden zusätzlich Freitext und Baustellenbilder analysiert. Preise bleiben bearbeitbar und müssen vor Versand geprüft werden.</p>
+</div>
+
+<div class="card">
+<h2>Bearbeitbare Positionen</h2>
+<div id="calcWarnings" class="chat warning" style="margin-bottom:10px">Noch keine Kalkulation.</div>
+<div style="overflow-x:auto">
+<table id="calcTable" style="width:100%;border-collapse:collapse">
+<thead><tr><th style="text-align:left">Position</th><th>Menge</th><th>Einheit</th><th>EP €</th><th>Gesamt €</th><th></th></tr></thead>
+<tbody id="calcRows"></tbody>
+</table>
+</div>
+<button class="wide gray" id="addCalcRow">+ Eigene Position</button>
+</div>
+
+<div class="card">
+<h2>Kalkulationssumme</h2>
+<div class="row"><span>Zwischensumme</span><b id="calcSubtotal">–</b></div>
+<div class="row"><span>Aufschlag</span><b id="calcMarkup">–</b></div>
+<div class="row"><span>Vorschlag Angebotspreis</span><b id="calcTotal">–</b></div>
+<button class="wide dark" id="calcToOffer">→ In Angebot übernehmen</button>
+</div>
+</section>
+
+<section id="times" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card">
+<h2>⏱️ Arbeitszeiten auf Baustelle</h2>
+<div id="timeProjectInfo" class="chat"></div>
+<div class="grid" style="margin-top:10px">
+<div><label>Mitarbeiter</label><select id="timePerson"></select></div>
+<div><label>Datum</label><input id="timeDate" type="date"></div>
+<div><label>Von</label><input id="timeFrom" type="time"></div>
+<div><label>Bis</label><input id="timeTo" type="time"></div>
+<div><label>Pause Minuten</label><input id="timeBreak" type="number" value="30"></div>
+<div><label>Stundensatz €/h</label><input id="timeRate" type="number" step=".01"></div>
+<div class="full"><label>Notiz</label><input id="timeNote" placeholder="z. B. Aushub / Feinplanum"></div>
+</div>
+<button class="wide orange" id="addTime">Zeit eintragen</button>
+</div>
+<div class="card">
+<h2>Zeiten & Personalkosten</h2>
+<div id="timeList"></div>
+<div class="row"><span>Gesamtstunden</span><b id="timeHoursTotal">0,00 h</b></div>
+<div class="row"><span>Personalkosten</span><b id="timeCostTotal">0,00 €</b></div>
+</div>
+</section>
+
+<section id="offer" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card"><h2>🧾 Angebot aus Baustelle erstellen</h2>
+<div id="offerInfo" class="chat"></div>
+<div class="grid" style="margin-top:10px">
+<div><label>Maschinen €</label><input id="offerMachine" type="number" value="0"></div>
+<div><label>Material €</label><input id="offerMaterial" type="number" value="0"></div>
+<div><label>Transport €</label><input id="offerTransport" type="number" value="0"></div>
+<div><label>Entsorgung €</label><input id="offerDisposal" type="number" value="0"></div>
+<div><label>Personal €</label><input id="offerLabor" type="number" value="0"></div>
+<div><label>Sonstiges €</label><input id="offerOther" type="number" value="0"></div>
+<div><label>Gewinnaufschlag %</label><input id="offerProfit" type="number" value="15"></div>
+</div>
+<button class="wide orange" id="buildOffer">Angebot erzeugen</button>
+</div>
+<div class="card"><textarea id="offerText" style="min-height:500px"></textarea></div>
+</section>
+
+<section id="survey" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card">
+<h2>📡 GPS-Aufmaß</h2>
+<div id="surveyProjectInfo" class="chat"></div>
+<p class="note">GPS am Handy ist für grobe Baustellen-Aufmaße geeignet, aber nicht zentimetergenau. Für Abrechnung, Grenzpunkte oder Maschinensteuerung ist Vermessungstechnik/RTK sinnvoller.</p>
+<button class="wide orange" id="addGpsPoint">📍 GPS-Punkt stabil aufnehmen</button>
+<button class="wide gray" id="clearGpsPoints">Aufmaß löschen</button>
+<p class="note">Für kurze Baumaße ist Handy-GPS nur eingeschränkt geeignet. Die App sammelt mehrere Messungen, verwirft ungenaue Werte und verwendet die besten Punkte. Für Zentimetermaß bitte Bandmaß/Laser oder RTK-GNSS verwenden.</p><div id="gpsStatus" class="chat" style="margin-top:10px">Noch kein Punkt aufgenommen.</div>
+</div>
+<div class="card">
+<h2>Aufmaß-Ergebnis</h2>
+<div id="surveyPoints"></div>
+<div class="row"><span>Strecke gesamt</span><b id="surveyDistance">0,00 m</b></div>
+<div class="row"><span>Fläche (wenn Polygon geschlossen gedacht)</span><b id="surveyArea">0,00 m²</b></div>
+</div>
+</section>
+
+<section id="company" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card"><h2>🏢 Meine Firma</h2>
+<div class="grid">
+<div class="full"><label>Firmenname</label><input id="companyName" value="Meine Firma"></div>
+<div><label>Telefon</label><input id="companyPhone"></div>
+<div><label>E-Mail</label><input id="companyEmail"></div>
+<div class="full"><label>Anschrift</label><input id="companyAddress"></div>
+</div>
+<button class="wide orange" id="saveCompany">Firmendaten speichern</button>
+</div>
+
+
+
+
+<div class="card"><h2>🚜 Fuhrpark / Geräte</h2>
+<div class="grid">
+<div><label>Bezeichnung</label><input id="assetName" placeholder="z. B. Hyundai HX25A-Z"></div>
+<div><label>Art</label><select id="assetType">
+<option>Minibagger</option>
+<option>Kettenbagger</option>
+<option>Mobilbagger</option>
+<option>Zweiwegebagger</option>
+<option>Radlader</option>
+<option>Minilader / Skid Steer</option>
+<option>Teleskoplader</option>
+<option>Planierraupe</option>
+<option>Grader</option>
+<option>Walze</option>
+<option>Vibrationsplatte</option>
+<option>Stampfer</option>
+<option>Asphaltfertiger</option>
+<option>Beschicker</option>
+<option>Fräse</option>
+<option>Straßenkehrmaschine</option>
+<option>Dumper</option>
+<option>Muldenkipper</option>
+<option>LKW Kipper</option>
+<option>LKW Abroller / Absetzer</option>
+<option>LKW Tieflader</option>
+<option>LKW Pritsche</option>
+<option>Transporter</option>
+<option>PKW</option>
+<option>Pickup</option>
+<option>Anhänger</option>
+<option>Tieflader-Anhänger</option>
+<option>Maschinentransporter</option>
+<option>Mobilkran</option>
+<option>Ladekran</option>
+<option>Bohrgerät</option>
+<option>Rammgerät</option>
+<option>Brecher</option>
+<option>Siebanlage</option>
+<option>Verdichter / Anbauverdichter</option>
+<option>Betonmischer</option>
+<option>Betonpumpe</option>
+<option>Stromerzeuger</option>
+<option>Kompressor</option>
+<option>Pumpe</option>
+<option>Laser / Vermessung</option>
+<option>Werkzeug</option>
+<option>Sonstiges</option>
+</select></div>
+<div><label>Kennzeichen / Inventar-Nr.</label><input id="assetId"></div>
+<div><label>Status</label><select id="assetStatus"><option>Verfügbar</option><option>Auf Baustelle</option><option>Werkstatt</option><option>Außer Betrieb</option></select></div>
+<div class="full"><label>Foto</label><input id="assetPhoto" type="file" accept="image/*">
+<p class="note">Bild aus Galerie auswählen oder – falls angeboten – direkt ein neues Foto machen.</p></div>
+</div>
+<button class="wide orange" id="addAsset">Gerät speichern</button>
+<button class="wide gray hidden" id="cancelAssetEdit">Bearbeiten abbrechen</button>
+<div id="assetList"></div>
+</div>
+
+<div class="card"><h2>👷 Personal</h2>
+<div class="grid">
+<div><label>Name</label><input id="personName" placeholder="Name"></div>
+<div><label>Rolle</label><input id="personRole" placeholder="z. B. Baumaschinist"></div>
+<div><label>Stundensatz intern €/h</label><input id="personRate" type="number" step=".01" value="0"></div>
+<div class="full"><label>Beruf / Ausbildung</label><input id="personProfession" placeholder="z. B. Tiefbaufacharbeiter, Baugeräteführer"></div>
+<div class="full"><label>Kenntnisse im Bau</label><textarea id="personSkills" placeholder="z. B. Pflasterbau, Kanalbau, Erdbau, Nivellieren, Verdichten, Schalungsarbeiten"></textarea></div>
+<div class="full"><label>Führerscheinklassen</label><input id="personLicenses" placeholder="z. B. B, BE, C1, C1E, C, CE"></div>
+<div class="full"><label>Maschinen / Berechtigungen</label><input id="personMachines" placeholder="z. B. Minibagger, Radbagger, Radlader, Zweiwegebagger"></div>
+<div class="full"><label>Weitere Qualifikationen</label><textarea id="personQualifications" placeholder="z. B. Zweiwegebagger-Berechtigung, Ersthelfer, RSA, Motorsäge, Schweißen"></textarea></div>
+
+<div><label>Telefon</label><input id="personPhone"></div>
+<div><label>Status</label><select id="personStatus"><option>Verfügbar</option><option>Auf Baustelle</option><option>Urlaub</option><option>Krank</option></select></div>
+<div class="full"><label>Foto</label><input id="personPhoto" type="file" accept="image/*">
+<p class="note">Bild aus Galerie auswählen oder – falls angeboten – direkt ein neues Foto machen.</p></div>
+</div>
+<button class="wide orange" id="addPerson">Mitarbeiter speichern</button>
+<button class="wide gray hidden" id="cancelPersonEdit">Bearbeiten abbrechen</button>
+<div id="personList"></div>
+</div>
+
+<div class="card">
+<h2>🔐 Mitarbeiter-Zugang</h2>
+<p class="note">Mitarbeiter sehen nur ihre zugewiesenen Baustellen und dürfen ihre eigenen Arbeitszeiten eintragen. Firma, Fuhrpark, Personal und Angebote bleiben gesperrt. Der Chef kann eingetragene Zeiten prüfen, korrigieren oder löschen.</p>
+<div class="grid">
+<div><label>Mitarbeiter</label><select id="invitePerson"></select></div>
+<div><label>Freigabe-Server</label><input id="shareServer" placeholder="z. B. https://deine-app.de"></div>
+</div>
+<button class="wide dark" id="createInvite">Einladung erstellen</button>
+<button class="wide gray" id="previewEmployee">Mitarbeiteransicht auf diesem Gerät testen</button><button class="wide orange" id="syncEmployeeTimes">⏱️ Mitarbeiter-Zeiten abrufen</button>
+<div id="inviteResult" class="chat" style="margin-top:10px">Noch keine Einladung erstellt.</div>
+</div>
+</section>
+
+<section id="assignments" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card"><h2>📍 Einsatz zuordnen</h2>
+<div class="grid">
+<div><label>Baustelle</label><select id="assignProject"></select></div>
+<div><label>Was zuordnen?</label><select id="assignKind"><option value="asset">Gerät</option><option value="person">Personal</option></select></div>
+<div class="full"><label>Gerät / Person</label><select id="assignItem"></select></div>
+</div>
+<button class="wide orange" id="assignBtn">Zur Baustelle zuordnen</button>
+</div>
+<div class="card"><h2>Aktuelle Einsatzübersicht</h2><div id="assignmentOverview"></div></div>
+</section>
+
+<section id="ai" class="hidden">
+<button class="gray back" data-page="home">← Startseite</button>
+<div class="card">
+<h2>🤖 KI-Problemlöser</h2>
+<div id="aiProjectInfo" class="chat"></div>
+<label style="margin-top:10px">Was ist das Problem / was soll entstehen?</label>
+<textarea id="aiQuestion" placeholder="z. B. Der Hang soll zurückgenommen werden. Unten möchte ich eine 4 × 3 m Fläche für eine Gartenhütte. Wie würdest du das machen?"></textarea>
+<label>Rahmenbedingungen</label>
+<textarea id="aiConstraints" placeholder="z. B. nur 3-t-Bagger verfügbar, Zufahrt 2,5 m breit, Aushub möglichst vor Ort verwenden."></textarea>
+<label>Foto optional</label>
+<select id="aiPhoto"></select>
+<label>KI-Server-Adresse</label>
+<input id="aiEndpoint" value="https://bauplaner-pro.onrender.com/api/ask" readonly>
+<p class="note">Ohne Server erstellt die App eine fertige Anfrage zum Kopieren. Mit Server kann sie direkt antworten und auch das Bild analysieren.</p>
+<button class="wide dark" id="askAI">Problem lösen</button>
+<div id="aiAnswer" class="chat" style="margin-top:10px">Noch keine Anfrage.</div>
+<label style="margin-top:10px">Rückfrage an die KI</label>
+<textarea id="aiFollowup" placeholder="z. B. Wie viel Frostschutz brauche ich bei 120 m² und 30 cm Schichtstärke?"></textarea>
+<button class="wide orange" id="askAIFollowup">Rückfrage senden</button>
+<button class="wide gray" id="clearAIChat">Unterhaltung löschen</button>
+</div>
+</section>
+
+<section id="employeeview" class="hidden">
+<button class="gray back" id="employeeBack">← Zurück</button>
+<div class="card">
+<h2>👷 Meine Baustellen</h2>
+<div id="employeeIdentity" class="chat"></div>
+</div>
+<div id="employeeProjects"></div>
+</section>
+
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const pages=['home','projects','photos','planner','offer','company','assignments','ai','autocalc','times','survey','employeeview'];
+const proPages=new Set(['planner','offer','assignments','ai','autocalc','times','employeeview']);
+let proActive=false;
+let proStateKnown=false;
+let activeProjectId=localStorage.getItem('es2Active')||'';
+let angleX=.65,angleY=-.55,zoom=1,drag=false,lx=0,ly=0;
+
+function requirePro(feature='Diese Funktion'){
+  if(proActive)return true;
+  alert(feature+' ist in BauPlaner Pro enthalten.\n\nPro kostet 9,99 € pro Monat und kann auf der Startseite freigeschaltet werden.');
+  go('home',true);
+  return false;
+}
+function go(id,skipGate=false){
+  if(!skipGate && proPages.has(id) && !requirePro('Diese Funktion'))return;
+  pages.forEach(x=>$(x).classList.toggle('hidden',x!==id));
+  if(id==='projects')renderProjects();if(id==='photos')renderPhotos();if(id==='planner')loadPlan();if(id==='offer')refreshOffer();if(id==='company')renderCompany();if(id==='assignments')renderAssignments();if(id==='ai')renderAI();if(id==='autocalc')renderAutoCalc();if(id==='times')renderTimes();if(id==='survey')renderSurvey();refreshHome();
+}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function gp(){try{return JSON.parse(localStorage.getItem('es2Projects')||'[]')}catch(e){return[]}}
+function sp(x){localStorage.setItem('es2Projects',JSON.stringify(x))}
+function gc(){try{return JSON.parse(localStorage.getItem('es2Company')||'{}')}catch(e){return{}}}
+function sc(x){localStorage.setItem('es2Company',JSON.stringify(x))}
+function ga(){try{return JSON.parse(localStorage.getItem('es2Assets')||'[]')}catch(e){return[]}}
+function sa(x){localStorage.setItem('es2Assets',JSON.stringify(x))}
+function gpers(){try{return JSON.parse(localStorage.getItem('es2Persons')||'[]')}catch(e){return[]}}
+function spers(x){localStorage.setItem('es2Persons',JSON.stringify(x))}
+function active(){return gp().find(p=>p.id===activeProjectId)}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function f(x){return Number(x).toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2})}
+function money(x){return Number(x).toLocaleString('de-DE',{style:'currency',currency:'EUR'})}
+function patchProject(fn){const a=gp(),i=a.findIndex(p=>p.id===activeProjectId);if(i<0)return false;fn(a[i]);sp(a);return true}
+
+$('newProject').addEventListener('click',()=>{const name=$('projName').value.trim();if(!name)return alert('Projektname fehlt.');if(!proActive && gp().length>=3)return alert('In der kostenlosen Version sind bis zu 3 Baustellen möglich. Für unbegrenzt viele Baustellen bitte BauPlaner Pro freischalten.');const p={id:'p'+Date.now(),name,customer:$('customer').value.trim(),location:$('location').value.trim(),phone:$('phone').value.trim(),email:$('email').value.trim(),description:$('description').value.trim(),lat:+$('projectLat').value||null,lon:+$('projectLon').value||null,photos:[],plan:null,assignments:{assets:[],persons:[]},timeEntries:[],topPlan:[],survey:{points:[]}};const a=gp();a.unshift(p);sp(a);activeProjectId=p.id;localStorage.setItem('es2Active',activeProjectId);renderProjects();refreshHome();alert('Baustelle angelegt.')});
+function renderProjects(){const a=gp(),box=$('projectList');if(!a.length){box.innerHTML='<div class="note">Noch keine Baustelle.</div>';return}box.innerHTML=a.map(p=>`<div class="project"><b>${esc(p.name)}</b><br>${esc(p.customer)} ${p.location?'· '+esc(p.location):''}<br><span class="badge">${p.photos?.length||0} Bilder</span><span class="badge">${p.plan?'3D vorhanden':'kein 3D'}</span><button class="gray openP" data-id="${p.id}" style="margin-top:8px">Öffnen</button> <button class="danger delP" data-id="${p.id}" style="margin-top:8px">Löschen</button></div>`).join('');box.querySelectorAll('.openP').forEach(b=>b.addEventListener('click',()=>{activeProjectId=b.dataset.id;localStorage.setItem('es2Active',activeProjectId);refreshHome();renderProjectAssignments();renderProjectMap();alert('Baustelle geöffnet.')}));box.querySelectorAll('.delP').forEach(b=>b.addEventListener('click',()=>{
+  if(!confirm('Löschen?'))return;
+  const pid=b.dataset.id;
+
+  const assets=ga();
+  assets.forEach(a=>{
+    if(a.projectId===pid){
+      a.projectId='';
+      a.status='Verfügbar';
+    }
+  });
+  sa(assets);
+
+  const persons=gpers();
+  persons.forEach(p=>{
+    if(p.projectId===pid){
+      p.projectId='';
+      p.status='Verfügbar';
+    }
+  });
+  spers(persons);
+
+  sp(gp().filter(p=>p.id!==pid));
+  if(activeProjectId===pid){
+    activeProjectId='';
+    localStorage.removeItem('es2Active');
+  }
+
+  renderProjects();
+  renderCompany();
+  renderAssignments();
+  refreshHome();
+}))}
+function refreshHome(){const p=active();$('homeProject').textContent=p?`${p.name}\nKunde: ${p.customer||'–'}\nOrt: ${p.location||'–'}\n${p.description||''}\n\nBilder: ${p.photos?.length||0}\n3D-Modell: ${p.plan?'ja':'nein'}`:'Keine Baustelle ausgewählt.'}
+
+$('addPhotos').addEventListener('click',async()=>{const p=active();if(!p)return alert('Bitte Baustelle öffnen.');const files=[...$('photoInput').files];if(!files.length)return alert('Bitte Bild auswählen.');const items=[];for(const file of files){items.push({id:'ph'+Date.now()+Math.random(),data:await compress(file),note:$('photoNote').value.trim(),name:file.name})}patchProject(x=>{x.photos=x.photos||[];x.photos.push(...items)});renderPhotos();alert('Bilder gespeichert.')});
+function compress(file){return new Promise((resolve,reject)=>{const img=new Image(),r=new FileReader();r.onload=e=>img.src=e.target.result;r.onerror=reject;img.onload=()=>{const s=Math.min(1,1100/img.width),c=document.createElement('canvas');c.width=Math.round(img.width*s);c.height=Math.round(img.height*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.72))};r.readAsDataURL(file)})}
+function renderPhotos(){const p=active(),g=$('photoGallery'),sel=$('analysisPhoto');g.innerHTML='';if(sel)sel.innerHTML='';if(!p?.photos?.length){g.innerHTML='<div class="note">Noch keine Bilder.</div>';if(sel)sel.innerHTML='<option value="">Kein Foto vorhanden</option>';return}p.photos.forEach(ph=>{g.insertAdjacentHTML('beforeend',`<div class="photo-card"><img src="${ph.data}" alt="Baustellenbild"><div class="note">${esc(ph.note||ph.name)}</div></div>`);if(sel)sel.insertAdjacentHTML('beforeend',`<option value="${ph.id}">${esc(ph.note||ph.name)}</option>`)});}
+
+const cv=$('cv'),ctx=cv.getContext('2d');
+function resize(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;ctx.setTransform(d,0,0,d,0,0)}
+function project(x,y,z){const cx=cv.clientWidth/2,cy=cv.clientHeight/2,ca=Math.cos(angleX),sa=Math.sin(angleX),cb=Math.cos(angleY),sb=Math.sin(angleY);let X=x*ca-z*sa,Z=x*sa+z*ca,Y=y*cb-Z*sb;Z=y*sb+Z*cb;const sc=Math.min(cv.clientWidth,cv.clientHeight)/10*zoom;return[cx+X*sc,cy-Y*sc*.85+Z*sc*.18]}
+function poly(pts,fill,stroke='#555'){ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.closePath();ctx.fillStyle=fill;ctx.fill();ctx.strokeStyle=stroke;ctx.stroke()}
+function box(x1,x2,z1,z2,y0,y1,fill){const p=(x,y,z)=>project(x,y,z);poly([p(x1,y1,z1),p(x2,y1,z1),p(x2,y1,z2),p(x1,y1,z2)],fill);poly([p(x1,y0,z1),p(x2,y0,z1),p(x2,y1,z1),p(x1,y1,z1)],fill);poly([p(x2,y0,z1),p(x2,y0,z2),p(x2,y1,z2),p(x2,y1,z1)],fill)}
+function drawPlan(){
+  resize();ctx.clearRect(0,0,cv.clientWidth,cv.clientHeight);
+  const t=$('planType').value,L=+$('pL').value||4,B=+$('pB').value||3,D=(+$('pD').value||30)/100,H=+$('pH').value||2.4,F=(+$('pF').value||20)/100,C=(+$('pC').value||15)/100;
+  let text='';
+  if(t==='shed'){box(-L/2,L/2,-B/2,B/2,-D,0,'#9c856a');box(-L/2,L/2,-B/2,B/2,0,F,'#aaa');box(-L/2,L/2,-B/2,B/2,F,F+C,'#bbb');box(-L/2,L/2,-B/2,B/2,F+C,F+C+H,'rgba(205,180,145,.55)');text=`Gebäude / Hütte\nAushub ${f(L*B*D)} m³\nFrostschutz ${f(L*B*F)} m³\nBeton ${f(L*B*C)} m³`}
+  else if(t==='trench'||t==='pipe'||t==='drain'){box(-L/2,L/2,-B/2,B/2,-D,0,'#9c856a');text=`${t==='trench'?'Graben':t==='pipe'?'Rohrleitung':'Drainage'}\nAushub ${f(L*B*D)} m³`}
+  else if(t==='slab'||t==='foundation'||t==='parking'||t==='path'||t==='road'){box(-L/2,L/2,-B/2,B/2,-D,0,'#9c856a');box(-L/2,L/2,-B/2,B/2,0,F,'#aaa');box(-L/2,L/2,-B/2,B/2,F,F+C,'#bbb');text=`Fläche / Aufbau\nAushub ${f(L*B*D)} m³\nFrostschutz ${f(L*B*F)} m³\nOberbau ${f(L*B*C)} m³`}
+  else if(t==='wall'){box(-L/2,L/2,-B/2,B/2,-D,0,'#aaa');box(-L/2,L/2,-.12,.12,0,H,'#bbb');text=`Stützwand\nFundament grob ${f(L*B*D)} m³\nStatik/Baugrund prüfen.`}
+  else if(t==='manhole'){box(-B/2,B/2,-B/2,B/2,-D,H,'#999');text=`Schacht\nAußenmaß grob ${f(B)} × ${f(B)} m\nTiefe ${f(D)} m`}
+  else if(t==='slope'){const p=(x,y,z)=>project(x,y,z);poly([p(-L/2,0,-B/2),p(L/2,0,-B/2),p(L/2,H,B/2),p(-L/2,H,B/2)],'#9c856a');text=`Hang / Böschung\nKeilvolumen grob ${f(L*B*H/2)} m³`}
+  else if(t==='tree'){const p=(x,y,z)=>project(x,y,z);ctx.beginPath();const q=p(0,H,0);ctx.arc(q[0],q[1],25,0,Math.PI*2);ctx.fillStyle='#aaa';ctx.fill();text='Baum / Hindernis – schematisch'}
+  else if(t==='pond'){box(-L/2,L/2,-B/2,B/2,-D,0,'rgba(120,150,170,.35)');text=`Teich / Mulde\nAushub grob ${f(L*B*D*.6)} m³`}
+  else if(t==='fence'){box(-L/2,L/2,-.05,.05,0,H,'#777');text=`Zaun / Linie\nLänge ${f(L)} m`}
+  $('planResult').textContent=text;
+}
+$('savePlan').addEventListener('click',()=>{drawPlan();if(!patchProject(p=>p.plan={type:$('planType').value,L:$('pL').value,B:$('pB').value,D:$('pD').value,H:$('pH').value,F:$('pF').value,C:$('pC').value,result:$('planResult').textContent}))alert('Bitte Baustelle öffnen.');else alert('3D gespeichert.')});
+function loadPlan(){const p=active();if(p?.plan){$('planType').value=p.plan.type;['L','B','D','H','F','C'].forEach(k=>$('p'+k).value=p.plan[k])}drawPlan()}
+cv.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY});window.addEventListener('pointerup',()=>drag=false);window.addEventListener('pointermove',e=>{if(!drag)return;angleX+=(e.clientX-lx)*.01;angleY+=(e.clientY-ly)*.01;lx=e.clientX;ly=e.clientY;drawPlan()});cv.addEventListener('wheel',e=>{e.preventDefault();zoom*=e.deltaY<0?1.08:.93;drawPlan()},{passive:false});
+
+function refreshOffer(){const p=active(),c=gc();$('offerInfo').textContent=p?`${p.name}\nKunde: ${p.customer||'–'}\nOrt: ${p.location||'–'}\nBilder: ${p.photos?.length||0}\n3D: ${p.plan?'vorhanden':'nicht vorhanden'}\n${p.plan?.result||''}`:'Bitte Baustelle öffnen.'}
+$('buildOffer').addEventListener('click',()=>{const p=active();if(!p)return alert('Bitte Baustelle öffnen.');const c=gc(),vals=['offerMachine','offerMaterial','offerTransport','offerDisposal','offerLabor','offerOther'].map(id=>+$(id).value||0),base=vals.reduce((a,b)=>a+b,0),profit=base*((+$('offerProfit').value||0)/100),total=base+profit;const assignedAssets=(p.assignments?.assets||[]).map(id=>ga().find(a=>a.id===id)?.name).filter(Boolean);const assignedPersons=(p.assignments?.persons||[]).map(id=>gpers().find(a=>a.id===id)?.name).filter(Boolean);$('offerText').value=`ANGEBOT\n\n${c.name||'Meine Firma'}\n${c.address||''}\n${c.phone||''} ${c.email||''}\n\nProjekt: ${p.name}\nKunde: ${p.customer||'–'}\nBaustelle: ${p.location||'–'}\n\nLeistungsbeschreibung:\n${p.description||'Erd- und Bauarbeiten gemäß Absprache.'}\n\nPlanungsdaten:\n${p.plan?.result||'Kein 3D-Modell hinterlegt.'}\nBilder zur Baustelle: ${p.photos?.length||0}\n\nGeplanter Geräteeinsatz:\n${assignedAssets.length?assignedAssets.map(x=>'• '+x).join('\n'):'• noch nicht zugeordnet'}\n\nGeplantes Personal:\n${assignedPersons.length?assignedPersons.map(x=>'• '+x).join('\n'):'• noch nicht zugeordnet'}\n\nPreisaufstellung:\n• Maschinen: ${money(vals[0])}\n• Material: ${money(vals[1])}\n• Transport: ${money(vals[2])}\n• Entsorgung: ${money(vals[3])}\n• Personal: ${money(vals[4])}\n• Sonstiges: ${money(vals[5])}\n\nSelbstkosten: ${money(base)}\nGewinnaufschlag: ${money(profit)}\nANGEBOTSPREIS: ${money(total)}\n\nHinweis: Mengen und Planungsdaten beruhen auf den hinterlegten Angaben. Nicht erkennbare Boden-, Leitungs-, Grundwasser- oder Entsorgungsverhältnisse können Mehrleistungen verursachen.`});
+
+$('saveCompany').addEventListener('click',()=>{sc({name:$('companyName').value,address:$('companyAddress').value,phone:$('companyPhone').value,email:$('companyEmail').value});alert('Firmendaten gespeichert.')});
+let editingAssetId='';
+
+$('addAsset').addEventListener('click',async()=>{
+  const name=$('assetName').value.trim();
+  if(!name)return alert('Bezeichnung fehlt.');
+
+  let photo='';
+  const file=$('assetPhoto').files[0];
+  if(file) photo=await compress(file);
+
+  const a=ga();
+
+  if(editingAssetId){
+    const x=a.find(v=>v.id===editingAssetId);
+    if(!x)return;
+    x.name=name;
+    x.type=$('assetType').value;
+    x.number=$('assetId').value;
+    x.status=$('assetStatus').value;
+    if(x.status==='Verfügbar' && x.projectId){
+      const oldProjectId=x.projectId;
+      x.projectId='';
+      const projects=gp();
+      const oldProject=projects.find(pr=>pr.id===oldProjectId);
+      if(oldProject?.assignments?.assets){
+        oldProject.assignments.assets=oldProject.assignments.assets.filter(id=>id!==x.id);
+        sp(projects);
+      }
+    }
+    if(photo) x.photo=photo;
+    sa(a);
+    editingAssetId='';
+    $('addAsset').textContent='Gerät speichern';
+    $('cancelAssetEdit').classList.add('hidden');
+    clearAssetForm();
+    renderCompany();
+    alert('Gerät geändert.');
+    return;
+  }
+
+  a.push({
+    id:'a'+Date.now(),
+    name,
+    type:$('assetType').value,
+    number:$('assetId').value,
+    status:$('assetStatus').value,
+    photo,
+    projectId:''
+  });
+  sa(a);
+  clearAssetForm();
+  renderCompany();
+  alert('Gerät gespeichert.');
+});
+
+function clearAssetForm(){
+  $('assetName').value='';
+  $('assetId').value='';
+  $('assetStatus').value='Verfügbar';
+  $('assetPhoto').value='';
+}
+
+function editAsset(id){
+  const x=ga().find(v=>v.id===id);
+  if(!x)return;
+  editingAssetId=id;
+  $('assetName').value=x.name||'';
+  $('assetType').value=x.type||'Minibagger';
+  $('assetId').value=x.number||'';
+  $('assetStatus').value=x.status||'Verfügbar';
+  $('assetPhoto').value='';
+  $('addAsset').textContent='Änderungen speichern';
+  $('cancelAssetEdit').classList.remove('hidden');
+  window.scrollTo({top:$('assetName').getBoundingClientRect().top + window.scrollY - 100, behavior:'smooth'});
+}
+
+function deleteAsset(id){
+  const x=ga().find(v=>v.id===id);
+  if(!x)return;
+  if(!confirm(`Gerät „${x.name}“ wirklich löschen?`))return;
+
+  sa(ga().filter(v=>v.id!==id));
+
+  // remove deleted asset from all project assignments
+  const projects=gp();
+  projects.forEach(p=>{
+    if(p.assignments?.assets){
+      p.assignments.assets=p.assignments.assets.filter(aid=>aid!==id);
+    }
+  });
+  sp(projects);
+
+  if(editingAssetId===id){
+    editingAssetId='';
+    $('addAsset').textContent='Gerät speichern';
+    $('cancelAssetEdit').classList.add('hidden');
+    clearAssetForm();
+  }
+  renderCompany();
+  renderAssignments();
+}
+
+$('cancelAssetEdit').addEventListener('click',()=>{
+  editingAssetId='';
+  $('addAsset').textContent='Gerät speichern';
+  $('cancelAssetEdit').classList.add('hidden');
+  clearAssetForm();
+});
+
+let editingPersonId='';
+
+$('addPerson').addEventListener('click',async()=>{
+  const name=$('personName').value.trim();
+  if(!name)return alert('Name fehlt.');
+
+  let photo='';
+  const file=$('personPhoto').files[0];
+  if(file) photo=await compress(file);
+
+  const a=gpers();
+
+  if(editingPersonId){
+    const x=a.find(v=>v.id===editingPersonId);
+    if(!x)return;
+    x.name=name;
+    x.role=$('personRole').value;
+    x.phone=$('personPhone').value;
+    x.rate=+$('personRate').value||0;
+    x.profession=$('personProfession').value.trim();
+    x.skills=$('personSkills').value.trim();
+    x.licenses=$('personLicenses').value.trim();
+    x.machines=$('personMachines').value.trim();
+    x.qualifications=$('personQualifications').value.trim();
+    x.status=$('personStatus').value;
+    if(x.status==='Verfügbar' && x.projectId){
+      const oldProjectId=x.projectId;
+      x.projectId='';
+      const projects=gp();
+      const oldProject=projects.find(pr=>pr.id===oldProjectId);
+      if(oldProject?.assignments?.persons){
+        oldProject.assignments.persons=oldProject.assignments.persons.filter(id=>id!==x.id);
+        sp(projects);
+      }
+    }
+    if(photo) x.photo=photo;
+    spers(a);
+    editingPersonId='';
+    $('addPerson').textContent='Mitarbeiter speichern';
+    $('cancelPersonEdit').classList.add('hidden');
+    clearPersonForm();
+    renderCompany();
+    renderAssignments();
+    alert('Mitarbeiter geändert.');
+    return;
+  }
+
+  a.push({
+    id:'u'+Date.now(),
+    name,
+    role:$('personRole').value,
+    phone:$('personPhone').value,
+    status:$('personStatus').value,
+    photo,
+    projectId:''
+  });
+  spers(a);
+  clearPersonForm();
+  renderCompany();
+  renderAssignments();
+  alert('Mitarbeiter gespeichert.');
+});
+
+function clearPersonForm(){
+  $('personName').value='';
+  $('personRole').value='';
+  $('personPhone').value='';
+  $('personRate').value='0';
+  $('personProfession').value='';
+  $('personSkills').value='';
+  $('personLicenses').value='';
+  $('personMachines').value='';
+  $('personQualifications').value='';
+  $('personStatus').value='Verfügbar';
+  $('personPhoto').value='';
+}
+
+function editPerson(id){
+  const x=gpers().find(v=>v.id===id);
+  if(!x)return;
+  editingPersonId=id;
+  $('personName').value=x.name||'';
+  $('personRole').value=x.role||'';
+  $('personPhone').value=x.phone||'';
+  $('personRate').value=x.rate||0;
+  $('personProfession').value=x.profession||'';
+  $('personSkills').value=x.skills||'';
+  $('personLicenses').value=x.licenses||'';
+  $('personMachines').value=x.machines||'';
+  $('personQualifications').value=x.qualifications||'';
+  $('personStatus').value=x.status||'Verfügbar';
+  $('personPhoto').value='';
+  $('addPerson').textContent='Änderungen speichern';
+  $('cancelPersonEdit').classList.remove('hidden');
+  window.scrollTo({top:$('personName').getBoundingClientRect().top + window.scrollY - 100, behavior:'smooth'});
+}
+
+function deletePerson(id){
+  const x=gpers().find(v=>v.id===id);
+  if(!x)return;
+  if(!confirm(`Mitarbeiter „${x.name}“ wirklich löschen?`))return;
+
+  spers(gpers().filter(v=>v.id!==id));
+
+  const projects=gp();
+  projects.forEach(p=>{
+    if(p.assignments?.persons){
+      p.assignments.persons=p.assignments.persons.filter(pid=>pid!==id);
+    }
+  });
+  sp(projects);
+
+  if(editingPersonId===id){
+    editingPersonId='';
+    $('addPerson').textContent='Mitarbeiter speichern';
+    $('cancelPersonEdit').classList.add('hidden');
+    clearPersonForm();
+  }
+
+  renderCompany();
+  renderAssignments();
+}
+
+$('cancelPersonEdit').addEventListener('click',()=>{
+  editingPersonId='';
+  $('addPerson').textContent='Mitarbeiter speichern';
+  $('cancelPersonEdit').classList.add('hidden');
+  clearPersonForm();
+});
+
+
+function renderCompany(){const c=gc();$('companyName').value=c.name||'Meine Firma';$('companyAddress').value=c.address||'';$('companyPhone').value=c.phone||'';$('companyEmail').value=c.email||'';$('assetList').innerHTML=ga().map(a=>`<div class="asset">${a.photo?`<img class="thumb" src="${a.photo}" alt="Gerät">`:''}<b>${esc(a.name)}</b><br>${esc(a.type)} ${a.number?'· '+esc(a.number):''}<br><span class="badge">${esc(a.status)}</span><span class="badge">${esc(projectName(a.projectId)||'keine Baustelle')}</span><br><button class="gray small editAssetBtn" data-id="${a.id}" style="margin-top:8px">Bearbeiten</button> <button class="danger small deleteAssetBtn" data-id="${a.id}" style="margin-top:8px">Löschen</button></div>`).join('')||'<div class="note">Noch keine Geräte.</div>';$('personList').innerHTML=gpers().map(a=>`<div class="person">${a.photo?`<img class="thumb" src="${a.photo}" alt="Mitarbeiter">`:''}<b>${esc(a.name)}</b><br>${esc(a.role)}${a.profession?'<br>'+esc(a.profession):''}${a.phone?'<br>'+esc(a.phone):''}${a.rate?'<br>'+money(a.rate)+'/h':''}${a.licenses?'<br>🚗 '+esc(a.licenses):''}${a.skills?'<br>🛠️ '+esc(a.skills):''}${a.qualifications?'<br>🎓 '+esc(a.qualifications):''}<br><span class="badge">${esc(a.status)}</span><span class="badge">${esc(projectName(a.projectId)||'keine Baustelle')}</span><br><button class="gray small editPersonBtn" data-id="${a.id}" style="margin-top:8px">Bearbeiten</button> <button class="danger small deletePersonBtn" data-id="${a.id}" style="margin-top:8px">Löschen</button></div>`).join('')||'<div class="note">Noch kein Personal.</div>';
+$('assetList').querySelectorAll('.editAssetBtn').forEach(b=>b.addEventListener('click',()=>editAsset(b.dataset.id)));
+$('assetList').querySelectorAll('.deleteAssetBtn').forEach(b=>b.addEventListener('click',()=>deleteAsset(b.dataset.id)));
+$('personList').querySelectorAll('.editPersonBtn').forEach(b=>b.addEventListener('click',()=>editPerson(b.dataset.id)));
+$('personList').querySelectorAll('.deletePersonBtn').forEach(b=>b.addEventListener('click',()=>deletePerson(b.dataset.id)));
+}
+function projectName(id){return gp().find(p=>p.id===id)?.name||''}
+
+$('assignKind').addEventListener('change',renderAssignItems);
+$('assignBtn').addEventListener('click',()=>{const pid=$('assignProject').value,kind=$('assignKind').value,item=$('assignItem').value;if(!pid||!item)return alert('Bitte Baustelle und Gerät/Person auswählen.');if(kind==='asset'){const a=ga();const x=a.find(v=>v.id===item);x.projectId=pid;x.status='Auf Baustelle';sa(a);const ps=gp();const p=ps.find(v=>v.id===pid);p.assignments=p.assignments||{assets:[],persons:[]};if(!p.assignments.assets.includes(item))p.assignments.assets.push(item);sp(ps)}else{const a=gpers();const x=a.find(v=>v.id===item);x.projectId=pid;x.status='Auf Baustelle';spers(a);const ps=gp();const p=ps.find(v=>v.id===pid);p.assignments=p.assignments||{assets:[],persons:[]};if(!p.assignments.persons.includes(item))p.assignments.persons.push(item);sp(ps)}renderAssignments();alert('Zuordnung gespeichert.')});
+function renderAssignItems(){const arr=$('assignKind').value==='asset'?ga():gpers();$('assignItem').innerHTML=arr.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join('')}
+function renderAssignments(){$('assignProject').innerHTML=gp().map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('');renderAssignItems();const lines=[];gp().forEach(p=>{const aset=ga().filter(a=>a.projectId===p.id),pers=gpers().filter(a=>a.projectId===p.id);lines.push(`<div class="project"><b>${esc(p.name)}</b><br>${aset.length?aset.map(a=>`🚜 ${esc(a.name)}`).join('<br>'):'<span class="note">kein Gerät</span>'}<br>${pers.length?pers.map(a=>`👷 ${esc(a.name)}`).join('<br>'):'<span class="note">kein Personal</span>'}</div>`)});const freeA=ga().filter(a=>!a.projectId),freeP=gpers().filter(a=>!a.projectId);lines.push(`<div class="project"><b>Verfügbar / keiner Baustelle zugeordnet</b><br>${freeA.map(a=>'🚜 '+esc(a.name)).join('<br>')||'kein Gerät'}<br>${freeP.map(a=>'👷 '+esc(a.name)).join('<br>')||'kein Personal'}</div>`);$('assignmentOverview').innerHTML=lines.join('')}
+
+
+function aiContext(p){
+  const assets=(p?.assignments?.assets||[]).map(id=>ga().find(a=>a.id===id)?.name).filter(Boolean);
+  const persons=(p?.assignments?.persons||[]).map(id=>gpers().find(a=>a.id===id)?.name).filter(Boolean);
+  return `Projekt: ${p?.name||'keine Baustelle'}
+Kunde: ${p?.customer||'–'}
+Ort: ${p?.location||'–'}
+Beschreibung: ${p?.description||'–'}
+3D-Plan: ${p?.plan?.result||'nicht vorhanden'}
+Zugeordnete Geräte: ${assets.join(', ')||'keine'}
+Zugeordnetes Personal: ${persons.join(', ')||'keines'}`;
+}
+
+let aiHistory=[];
+function buildProblemPrompt(p,goal,constraints){
+  return `${aiContext(p)}
+
+AUFGABE / ZIEL:
+${goal||'Baustellensituation analysieren und sinnvolle Ausführung vorschlagen.'}
+
+RAHMENBEDINGUNGEN:
+${constraints||'keine zusätzlichen Angaben'}
+
+Arbeite wie ein erfahrener deutscher Tief-/Erdbau-Polier. Trenne sicher erkennbare Fakten von Annahmen. Erfinde niemals Maße aus einem Foto. Wenn Maße fehlen, stelle konkrete Rückfragen. Prüfe Gefälle/Entwässerung, Baugrund, Aushub, Schichtaufbau, Verdichtung, Zufahrt und Maschinenwahl. Berechne Mengen nur aus bekannten Maßen und nenne die Formel. Bei Frostschutz/Splitt berücksichtige Verdichtungs-/Bestellreserve. Gib eine praxisnahe Reihenfolge, Material und Maschinen an. Weise bei Statik, Leitungen, Böschung, Grundwasser oder Grenzthemen auf notwendige Fachprüfung hin.`;
+}
+
+async function callAI(endpoint,prompt,image){
+  const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:prompt,project:'Baustellen-Problemlöser',image:image||null,history:aiHistory.slice(-8)})});
+  const j=await r.json();if(!r.ok)throw new Error(j.error||'Serverfehler');return j.answer||'Keine Antwort erhalten.';
+}
+
+function renderAI(){
+  const p=active();$('aiProjectInfo').textContent=p?aiContext(p):'Bitte zuerst eine Baustelle öffnen.';
+  const s=$('aiPhoto');s.innerHTML='<option value="">Ohne Foto</option>';
+  (p?.photos||[]).forEach(ph=>s.insertAdjacentHTML('beforeend',`<option value="${ph.id}">${esc(ph.note||ph.name)}</option>`));
+}
+
+async function runProblemQuestion(question,isFollowup=false){
+  const p=active();if(!p)return alert('Bitte zuerst eine Baustelle öffnen.');
+  if(!question)return alert('Bitte zuerst die Aufgabe oder Frage eingeben.');
+  const endpoint='https://bauplaner-pro.onrender.com/api/ask';
+  const ph=(p.photos||[]).find(x=>x.id===$('aiPhoto').value);
+  const prompt=isFollowup?`${aiContext(p)}\n\nRÜCKFRAGE: ${question}\nBeziehe dich auf die bisherige Unterhaltung. Nutze nur bekannte Maße; fehlende Maße konkret erfragen.`:buildProblemPrompt(p,question,$('aiConstraints').value.trim());
+  if(!endpoint){$('aiAnswer').textContent='Fertige KI-Anfrage:\n\n'+prompt+'\n\nFür eine direkte Antwort bitte die URL deines BauPlaner-Servers mit /api/ask eintragen.';return}
+  try{
+    $('aiAnswer').textContent='KI analysiert Baustelle und Angaben …';
+    const answer=await callAI(endpoint,prompt,isFollowup?null:(ph?.data||null));
+    aiHistory.push({role:'user',content:question},{role:'assistant',content:answer});
+    $('aiAnswer').textContent=answer;
+  }catch(e){$('aiAnswer').textContent='Verbindung fehlgeschlagen: '+e.message}
+}
+$('askAI').addEventListener('click',()=>runProblemQuestion($('aiQuestion').value.trim(),false));
+$('askAIFollowup')?.addEventListener('click',()=>{const q=$('aiFollowup').value.trim();if(!q)return alert('Bitte Rückfrage eingeben.');runProblemQuestion(q,true)});
+$('clearAIChat')?.addEventListener('click',()=>{aiHistory=[];$('aiAnswer').textContent='Unterhaltung gelöscht.';$('aiFollowup').value=''});
+
+$('photoSolve').addEventListener('click',async()=>{if(!requirePro('Die KI-Fotoanalyse'))return;
+  const p=active();if(!p)return alert('Bitte zuerst eine Baustelle öffnen.');
+  const ph=(p.photos||[]).find(x=>x.id===$('analysisPhoto').value);if(!ph)return alert('Bitte zuerst ein Baustellenfoto auswählen.');
+  const prompt=buildProblemPrompt(p,$('photoGoal').value.trim(),$('photoConstraints').value.trim());
+  const endpoint='https://bauplaner-pro.onrender.com/api/ask';
+  if(!endpoint){$('photoSolution').textContent='Fertige Anfrage für die Fotoanalyse:\n\n'+prompt+'\n\nFür direkte Bildanalyse bitte die URL deines BauPlaner-Servers mit /api/ask eintragen.';return}
+  try{$('photoSolution').textContent='KI analysiert Foto und Aufgabe …';$('photoSolution').textContent=await callAI(endpoint,prompt,ph.data)}
+  catch(e){$('photoSolution').textContent='Verbindung fehlgeschlagen: '+e.message}
+});
+
+
+let calcData=[];
+
+const MARKET_PRICES_2026={
+  setup:180,
+  miniExc:85,
+  excavator:120,
+  loader:90,
+  roller:75,
+  truck:95,
+  labor:45,
+  km:2.20,
+  frostT:28,
+  splittT:42,
+  disposalT:32,
+  paverMaterialM2:32,
+  pavingM2:38,
+  curbM:26,
+  concreteM3:175,
+  drainM:38,
+  pipeM:32,
+  excavationM3:18,
+  subbaseM2:20,
+  fineGradeM2:4.5
+};
+
+function renderAutoCalc(){
+  const p=active();
+  $('autoProjectInfo').textContent=p?`${p.name}\nKunde: ${p.customer||'–'}\nOrt: ${p.location||'–'}\nBilder: ${p.photos?.length||0}\n3D-Modell: ${p.plan?'vorhanden':'nicht vorhanden'}`:'Bitte zuerst eine Baustelle öffnen.';
+  if(p){
+    $('autoDescription').value=p.description||'';
+    if(p.plan){
+      const L=+p.plan.L||0,B=+p.plan.B||0;
+      if(L&&B && !$('autoArea').value)$('autoArea').value=(L*B).toFixed(2);
+      if(p.plan.D && !$('autoDepth').value)$('autoDepth').value=p.plan.D;
+      if(p.plan.F && !$('autoFS').value)$('autoFS').value=p.plan.F;
+    }
+  }
+}
+
+function hasWord(text, words){text=(text||'').toLowerCase();return words.some(w=>text.includes(w))}
+function addPos(name,qty,unit,ep,group='',note=''){calcData.push({name,qty:Number(qty)||0,unit,ep:Number(ep)||0,group,note})}
+function price(v){return v*(+$('autoPriceLevel').value||1)}
+
+function parseNumberDE(v){return +(String(v).replace(',','.'))||0}
+function parseCalcDimensions(text){
+  const t=(text||'').toLowerCase().replace(/×/g,'x');
+  const out={}; let m;
+  m=t.match(/(\d+(?:[.,]\d+)?)\s*m\s*x\s*(\d+(?:[.,]\d+)?)\s*m/);if(m)out.area=parseNumberDE(m[1])*parseNumberDE(m[2]);
+  m=t.match(/(\d+(?:[.,]\d+)?)\s*m[²2]/);if(m&&!out.area)out.area=parseNumberDE(m[1]);
+  m=t.match(/(?:auskoffer\w*|aushub\w*|abtrag\w*|tiefe)\D{0,25}(\d+(?:[.,]\d+)?)\s*cm/);if(m)out.depthCm=parseNumberDE(m[1]);
+  m=t.match(/(?:frostschutz|tragschicht|schotter)\D{0,25}(\d+(?:[.,]\d+)?)\s*cm/);if(m)out.frostCm=parseNumberDE(m[1]);
+  m=t.match(/(?:splitt|bettung)\D{0,25}(\d+(?:[.,]\d+)?)\s*cm/);if(m)out.splittCm=parseNumberDE(m[1]);
+  m=t.match(/(?:entfernung|deponie|baustelle)\D{0,20}(\d+(?:[.,]\d+)?)\s*km/);if(m)out.km=parseNumberDE(m[1]);
+  return out;
+}
+
+function localEstimate(){
+  const p=active(); if(!p)return alert('Bitte zuerst eine Baustelle öffnen.');
+  const photoNotes=(p.photos||[]).map(ph=>ph.note||ph.name||'').join(' ');
+  const text=(($('autoDescription').value||'')+' '+(p.description||'')+' '+photoNotes).toLowerCase();
+  const parsed=parseCalcDimensions(text);
+  if(!$('autoArea').value&&parsed.area)$('autoArea').value=parsed.area.toFixed(2);
+  if(!$('autoDepth').value&&parsed.depthCm)$('autoDepth').value=parsed.depthCm;
+  if(!$('autoFS').value&&parsed.frostCm)$('autoFS').value=parsed.frostCm;
+  if(!$('autoSplitt').value&&parsed.splittCm)$('autoSplitt').value=parsed.splittCm;
+  if(!$('autoKm').value&&parsed.km)$('autoKm').value=parsed.km;
+  const area=+$('autoArea').value||parsed.area||0;
+  const depth=(+$('autoDepth').value||parsed.depthCm||0)/100;
+  const fsD=(+$('autoFS').value||parsed.frostCm||0)/100;
+  const spD=(+$('autoSplitt').value||parsed.splittCm||0)/100;
+  const km=+$('autoKm').value||parsed.km||0;
+  const payload=+$('autoPayload').value||7.5;
+
+  const exc=area*depth;
+  const loose=exc*1.20;
+  const soilT=loose*1.8;
+  const loads=payload?Math.ceil(soilT/payload):0;
+  const fsM3=area*fsD*1.15, fsT=fsM3*1.8;
+  const splM3=area*spD*1.10, splT=splM3*1.6;
+
+  const excavation=hasWord(text,['aushub','auskoffern','abtragen','boden raus','erdarbeiten'])||depth>0;
+  const haul=hasWord(text,['abfahren','abtransport','entsorgen','deponie','wegfahren']);
+  const frost=hasWord(text,['frostschutz','tragschicht','schotter'])||fsD>0;
+  const splitt=hasWord(text,['splitt','bettung'])||spD>0;
+  const paving=hasWord(text,['pflaster','pflastern','pflasterung']);
+  const compact=hasWord(text,['verdichten','walze','rütteln','rüttelplatte']);
+  const edging=hasWord(text,['bord','borde','randstein','einfassung']);
+  const drain=hasWord(text,['drainage','dränage','entwässerung']);
+  const concrete=hasWord(text,['beton','bodenplatte','fundament']);
+  const pipe=hasWord(text,['rohr','leitung','kanal']);
+
+  calcData=[];
+  const warnings=[];
+
+  addPos('Baustelleneinrichtung / An- und Abfahrt',1,'pausch.',price(MARKET_PRICES_2026.setup),'Allgemein');
+
+  if(excavation && exc>0){
+    addPos('Aushub / Auskofferung herstellen',exc,'m³',price(MARKET_PRICES_2026.excavationM3),'Erdarbeiten');
+    addPos('Feinplanum / Planum herstellen',area,'m²',price(MARKET_PRICES_2026.fineGradeM2),'Erdarbeiten');
+  }
+
+  if(haul && soilT>0){
+    addPos('Aushub laden und entsorgen',soilT,'t',price(MARKET_PRICES_2026.disposalT),'Entsorgung');
+    if(km>0)addPos(`Transport Aushub (${loads} Fuhren)`,loads*km*2,'km',price(MARKET_PRICES_2026.km),'Transport');
+    else addPos(`LKW / Abtransport, ca. ${loads} Fuhren`,Math.max(1,loads*0.75),'h',price(MARKET_PRICES_2026.truck),'Transport');
+  }
+
+  if(frost && area>0){
+    if(fsT>0)addPos('Frostschutz liefern',fsT,'t',price(MARKET_PRICES_2026.frostT),'Material');
+    addPos('Frostschutz einbauen / profilieren',area,'m²',price(MARKET_PRICES_2026.subbaseM2),'Einbau');
+    addPos('Frostschutz verdichten',Math.max(1,area/150),'h',price(MARKET_PRICES_2026.roller),'Verdichtung');
+  }
+
+  if(splitt && splT>0)addPos('Splitt / Bettungsmaterial liefern',splT,'t',price(MARKET_PRICES_2026.splittT),'Material');
+
+  if(paving && area>0){
+    addPos('Pflastermaterial – Richtwert Betonstein',area,'m²',price(MARKET_PRICES_2026.paverMaterialM2),'Material');
+    addPos('Pflaster verlegen inkl. Zuschnitt / abrütteln',area,'m²',price(MARKET_PRICES_2026.pavingM2),'Pflaster');
+  }
+
+  if(compact && !frost)addPos('Verdichtungsarbeiten',Math.max(1,area/150),'h',price(MARKET_PRICES_2026.roller),'Verdichtung');
+
+  if(edging){
+    addPos('Borde / Randeinfassung liefern und setzen',0,'m',price(MARKET_PRICES_2026.curbM),'Einfassung');
+    warnings.push('Randeinfassung erkannt: laufende Meter bitte ergänzen.');
+  }
+
+  if(drain){
+    addPos('Drainage liefern und einbauen',0,'m',price(MARKET_PRICES_2026.drainM),'Entwässerung');
+    warnings.push('Drainage erkannt: Länge und Aufbau bitte ergänzen.');
+  }
+
+  if(pipe){
+    addPos('Rohr-/Leitungsbau',0,'m',price(MARKET_PRICES_2026.pipeM),'Leitungsbau');
+    warnings.push('Rohr/Leitung erkannt: Länge, Durchmesser und Material bitte ergänzen.');
+  }
+
+  if(concrete){
+    addPos('Beton liefern / einbauen',0,'m³',price(MARKET_PRICES_2026.concreteM3),'Beton');
+    warnings.push('Beton/Fundament erkannt: Betonmenge bitte ergänzen.');
+  }
+
+  // Staff and machinery sanity positions
+  if(area>0){
+    addPos('Nebenarbeiten / Handarbeit',Math.max(2,area/60),'h',price(MARKET_PRICES_2026.labor),'Personal');
+  }
+
+  if(!area)warnings.push('STOPP: Fläche fehlt. Bitte Länge × Breite oder m² angeben – die App erfindet keine Menge.');
+  if(excavation && !depth)warnings.push('STOPP: Aushub erkannt, aber Tiefe fehlt. Bitte Aushubtiefe in cm angeben.');
+  if(frost && !fsD)warnings.push('STOPP: Frostschutz erkannt, aber Schichtdicke fehlt. Bitte verdichtete Schichtdicke in cm angeben.');
+  if(p.photos?.length){warnings.push(`${p.photos.length} Baustellenbild(er) vorhanden. Foto-Notizen werden in der lokalen Kalkulation berücksichtigt.`);}
+  if(exc>0)warnings.push(`Aushub: ${f(area)} m² × ${f(depth)} m = ${f(exc)} m³ fest; Abfuhransatz inkl. Auflockerung ca. ${f(loose)} m³.`);
+  if(fsM3>0)warnings.push(`Frostschutz: ${f(area)} m² × ${f(fsD)} m × 1,15 Reserve = ${f(fsM3)} m³ ≈ ${f(fsT)} t.`);
+  if(splM3>0)warnings.push(`Bettung: ${f(area)} m² × ${f(spD)} m × 1,10 Reserve = ${f(splM3)} m³ ≈ ${f(splT)} t.`);
+  warnings.push('Preisvorschlag = grober Markt-/Kalkulationswert. Vor Angebot immer prüfen und an Region, Boden, Material und Baustellenzugang anpassen.');
+
+  $('calcWarnings').textContent=warnings.map(x=>'• '+x).join('\n');
+  renderCalcRows();
+}
+
+async function aiEstimate(){
+  const endpoint='https://bauplaner-pro.onrender.com/api/estimate';
+  const p=active();if(!p)return false;
+  const payload={project:{name:p.name,customer:p.customer||'',location:p.location||'',description:$('autoDescription').value||p.description||'',area:+$('autoArea').value||0,depthCm:+$('autoDepth').value||0,frostCm:+$('autoFS').value||0,splittCm:+$('autoSplitt').value||0,distanceKm:+$('autoKm').value||0,truckPayload:+$('autoPayload').value||7.5,plan:p.plan||null},images:(p.photos||[]).slice(0,4).map(ph=>ph.data),priceLevel:+$('autoPriceLevel').value||1};
+  $('calcWarnings').textContent='KI liest Leistungsarten und fehlende Maße …';
+  try{
+    const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const j=await r.json();if(!r.ok)throw new Error(j.error||'KI-Serverfehler');
+    const d=j.dimensions||{};
+    if(!$('autoArea').value&&d.area)$('autoArea').value=d.area;
+    if(!$('autoDepth').value&&d.depthCm)$('autoDepth').value=d.depthCm;
+    if(!$('autoFS').value&&d.frostCm)$('autoFS').value=d.frostCm;
+    if(!$('autoSplitt').value&&d.splittCm)$('autoSplitt').value=d.splittCm;
+    if(!$('autoKm').value&&d.distanceKm)$('autoKm').value=d.distanceKm;
+    const tags=Object.entries(j.intents||{}).filter(([,v])=>v).map(([k])=>k).join(' ');
+    if(tags)$('autoDescription').value=($('autoDescription').value+' '+tags).trim();
+    localEstimate();
+    const extra=[...(j.notes||[]),...(j.questions||[]).map(x=>'Rückfrage: '+x)];
+    if(extra.length)$('calcWarnings').textContent += '\n'+extra.map(x=>'• '+x).join('\n');
+    return true;
+  }catch(e){$('calcWarnings').textContent='KI-Auswertung fehlgeschlagen: '+e.message+'\nLokale Mengenberechnung wird verwendet.';return false}
+}
+
+async function generateAutoCalc(){
+  const ok=await aiEstimate();
+  if(ok)return;
+  localEstimate();
+}
+
+function renderCalcRows(){
+  const tbody=$('calcRows');tbody.innerHTML='';
+  calcData.forEach((x,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td style="padding:6px;min-width:230px"><input class="cName" data-i="${i}" value="${esc(x.name)}">${x.note?`<div class="note">${esc(x.note)}</div>`:''}</td>
+      <td style="padding:6px"><input class="cQty" data-i="${i}" type="number" step=".01" value="${x.qty}"></td>
+      <td style="padding:6px"><input class="cUnit" data-i="${i}" value="${esc(x.unit)}"></td>
+      <td style="padding:6px"><input class="cEp" data-i="${i}" type="number" step=".01" value="${x.ep.toFixed?x.ep.toFixed(2):x.ep}"></td>
+      <td style="padding:6px;text-align:right"><b class="cTotal">${money(x.qty*x.ep)}</b></td>
+      <td style="padding:6px"><button class="danger small cDel" data-i="${i}">×</button></td>`;
+    tbody.appendChild(tr);
+  });
+  tbody.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',()=>{
+    const i=+inp.dataset.i;
+    if(inp.classList.contains('cName'))calcData[i].name=inp.value;
+    if(inp.classList.contains('cQty'))calcData[i].qty=+inp.value||0;
+    if(inp.classList.contains('cUnit'))calcData[i].unit=inp.value;
+    if(inp.classList.contains('cEp'))calcData[i].ep=+inp.value||0;
+    const row=inp.closest('tr');if(row)row.querySelector('.cTotal').textContent=money(calcData[i].qty*calcData[i].ep);
+    renderCalcTotals();
+  }));
+  tbody.querySelectorAll('.cDel').forEach(b=>b.addEventListener('click',()=>{calcData.splice(+b.dataset.i,1);renderCalcRows()}));
+  renderCalcTotals();
+}
+
+function renderCalcTotals(){
+  const sub=calcData.reduce((s,x)=>s+x.qty*x.ep,0);
+  const markup=12;
+  const m=sub*markup/100,total=sub+m;
+  $('calcSubtotal').textContent=money(sub);
+  $('calcMarkup').textContent=`${money(m)} (${markup} % Risiko/Gewinn)`;
+  $('calcTotal').textContent=money(total);
+}
+
+$('generateCalc').addEventListener('click',generateAutoCalc);
+$('addCalcRow').addEventListener('click',()=>{addPos('Neue Position',1,'Stk.',0);renderCalcRows()});
+
+$('calcToOffer').addEventListener('click',()=>{
+  const p=active();if(!p)return;
+  const sub=calcData.reduce((s,x)=>s+x.qty*x.ep,0),markup=12,m=sub*markup/100,total=sub+m;
+  const c=gc();
+  const pos=calcData.map((x,i)=>`${i+1}. ${x.name}\n   ${f(x.qty)} ${x.unit} × ${money(x.ep)} = ${money(x.qty*x.ep)}`).join('\n\n');
+  $('offerText').value=`ANGEBOT\n\n${c.name||'Meine Firma'}\n${c.address||''}\n${c.phone||''} ${c.email||''}\n\nProjekt: ${p.name}\nKunde: ${p.customer||'–'}\nBaustelle: ${p.location||'–'}\n\nLeistungsbeschreibung:\n${p.description||$('autoDescription').value||'Bauleistungen gemäß Absprache.'}\n\nKalkulationspositionen:\n\n${pos}\n\nZwischensumme: ${money(sub)}\nRisiko-/Gewinnaufschlag ${markup} %: ${money(m)}\n\nANGEBOTSPREIS: ${money(total)}\n\nHinweis: Dies ist ein bearbeitbarer Kalkulationsvorschlag. Endpreis und Mengen sind vor Versand anhand Aufmaß, Boden, Entsorgung, Material und tatsächlicher Baustellensituation zu prüfen.`;
+  go('offer');
+});
+
+
+
+function releaseAssetFromProject(assetId){
+  const assets=ga();
+  const a=assets.find(x=>x.id===assetId);
+  if(a){
+    a.projectId='';
+    a.status='Verfügbar';
+    sa(assets);
+  }
+
+  const projects=gp();
+  projects.forEach(p=>{
+    if(p.assignments?.assets){
+      p.assignments.assets=p.assignments.assets.filter(id=>id!==assetId);
+    }
+  });
+  sp(projects);
+
+  renderProjectAssignments();
+  renderAssignments();
+  renderCompany();
+}
+
+function releasePersonFromProject(personId){
+  const persons=gpers();
+  const p=persons.find(x=>x.id===personId);
+  if(p){
+    p.projectId='';
+    p.status='Verfügbar';
+    spers(persons);
+  }
+
+  const projects=gp();
+  projects.forEach(pr=>{
+    if(pr.assignments?.persons){
+      pr.assignments.persons=pr.assignments.persons.filter(id=>id!==personId);
+    }
+  });
+  sp(projects);
+
+  renderProjectAssignments();
+  renderAssignments();
+  renderCompany();
+}
+
+function renderProjectAssignments(){
+  const p=active();
+  const box=$('projectAssignments');
+  const assetSel=$('projectAssignAsset');
+  const personSel=$('projectAssignPerson');
+
+  if(!box)return;
+
+  if(!p){
+    box.textContent='Bitte eine Baustelle öffnen.';
+    if(assetSel)assetSel.innerHTML='<option value="">Keine Baustelle gewählt</option>';
+    if(personSel)personSel.innerHTML='<option value="">Keine Baustelle gewählt</option>';
+    return;
+  }
+
+  const assets=ga().filter(a=>a.projectId===p.id);
+  const persons=gpers().filter(x=>x.projectId===p.id);
+
+  let html='';
+
+  html += '<b>Geräte:</b><br>';
+  html += assets.length
+    ? assets.map(a=>`🚜 ${esc(a.name)} <button class="danger small unassignAsset" data-id="${a.id}">Entfernen</button>`).join('<br>')
+    : '<span class="note">Keine Geräte eingeteilt.</span>';
+
+  html += '<br><br><b>Personal:</b><br>';
+  html += persons.length
+    ? persons.map(x=>`👷 ${esc(x.name)}${x.role?' · '+esc(x.role):''} <button class="danger small unassignPerson" data-id="${x.id}">Entfernen</button>`).join('<br>')
+    : '<span class="note">Keine Mitarbeiter eingeteilt.</span>';
+
+  box.innerHTML=html;
+
+  box.querySelectorAll('.unassignAsset').forEach(b=>b.addEventListener('click',()=>releaseAssetFromProject(b.dataset.id)));
+  box.querySelectorAll('.unassignPerson').forEach(b=>b.addEventListener('click',()=>releasePersonFromProject(b.dataset.id)));
+
+  // Repair/normalize older records: if something was manually set to "Verfügbar",
+  // remove a stale project link so it can actually be assigned again.
+  let allAssets=ga(), assetsChanged=false;
+  allAssets.forEach(a=>{
+    if(a.status==='Verfügbar' && a.projectId && a.projectId!==p.id){
+      const oldId=a.projectId;
+      a.projectId='';
+      const projects=gp();
+      const oldProject=projects.find(pr=>pr.id===oldId);
+      if(oldProject?.assignments?.assets){
+        oldProject.assignments.assets=oldProject.assignments.assets.filter(id=>id!==a.id);
+        sp(projects);
+      }
+      assetsChanged=true;
+    }
+  });
+  if(assetsChanged)sa(allAssets);
+
+  let allPersons=gpers(), personsChanged=false;
+  allPersons.forEach(x=>{
+    if(x.status==='Verfügbar' && x.projectId && x.projectId!==p.id){
+      const oldId=x.projectId;
+      x.projectId='';
+      const projects=gp();
+      const oldProject=projects.find(pr=>pr.id===oldId);
+      if(oldProject?.assignments?.persons){
+        oldProject.assignments.persons=oldProject.assignments.persons.filter(id=>id!==x.id);
+        sp(projects);
+      }
+      personsChanged=true;
+    }
+  });
+  if(personsChanged)spers(allPersons);
+
+  const availableAssets=ga().filter(a=>!a.projectId || a.projectId===p.id);
+  assetSel.innerHTML=availableAssets.length
+    ? '<option value="">Gerät wählen</option>'+availableAssets.map(a=>`<option value="${a.id}">${esc(a.name)}${a.projectId===p.id?' (bereits hier)':''}</option>`).join('')
+    : '<option value="">Keine verfügbaren Geräte</option>';
+
+  const availablePersons=gpers().filter(x=>!x.projectId || x.projectId===p.id);
+  personSel.innerHTML=availablePersons.length
+    ? '<option value="">Mitarbeiter wählen</option>'+availablePersons.map(x=>`<option value="${x.id}">${esc(x.name)}${x.projectId===p.id?' (bereits hier)':''}</option>`).join('')
+    : '<option value="">Keine verfügbaren Mitarbeiter</option>';
+}
+
+$('projectAssignAssetBtn')?.addEventListener('click',()=>{if(!requirePro('Die Maschinen-Zuordnung'))return;
+  const p=active();
+  if(!p)return alert('Bitte zuerst eine Baustelle öffnen.');
+  const id=$('projectAssignAsset').value;
+  if(!id)return alert('Bitte Gerät auswählen.');
+
+  const assets=ga();
+  const a=assets.find(x=>x.id===id);
+  if(!a)return;
+
+  // Remove from old project's assignment list first
+  if(a.projectId && a.projectId!==p.id){
+    const projects=gp();
+    const old=projects.find(pr=>pr.id===a.projectId);
+    if(old?.assignments?.assets){
+      old.assignments.assets=old.assignments.assets.filter(x=>x!==id);
+    }
+    sp(projects);
+  }
+
+  a.projectId=p.id;
+  a.status='Auf Baustelle';
+  sa(assets);
+
+  const projects=gp();
+  const current=projects.find(pr=>pr.id===p.id);
+  current.assignments=current.assignments||{assets:[],persons:[]};
+  if(!current.assignments.assets.includes(id))current.assignments.assets.push(id);
+  sp(projects);
+
+  renderProjectAssignments();
+  renderAssignments();
+  renderCompany();
+});
+
+$('projectAssignPersonBtn')?.addEventListener('click',()=>{if(!requirePro('Die Mitarbeiter-Zuordnung'))return;
+  const p=active();
+  if(!p)return alert('Bitte zuerst eine Baustelle öffnen.');
+  const id=$('projectAssignPerson').value;
+  if(!id)return alert('Bitte Mitarbeiter auswählen.');
+
+  const persons=gpers();
+  const person=persons.find(x=>x.id===id);
+  if(!person)return;
+
+  // Remove from old project's assignment list first
+  if(person.projectId && person.projectId!==p.id){
+    const projects=gp();
+    const old=projects.find(pr=>pr.id===person.projectId);
+    if(old?.assignments?.persons){
+      old.assignments.persons=old.assignments.persons.filter(x=>x!==id);
+    }
+    sp(projects);
+  }
+
+  person.projectId=p.id;
+  person.status='Auf Baustelle';
+  spers(persons);
+
+  const projects=gp();
+  const current=projects.find(pr=>pr.id===p.id);
+  current.assignments=current.assignments||{assets:[],persons:[]};
+  if(!current.assignments.persons.includes(id))current.assignments.persons.push(id);
+  sp(projects);
+
+  renderProjectAssignments();
+  renderAssignments();
+  renderCompany();
+  renderTimes();
+});
+
+function projectLocationQuery(p){
+  if(!p)return '';
+  if(p.lat && p.lon)return `${p.lat},${p.lon}`;
+  return p.location||'';
+}
+function renderProjectMap(){
+  const p=active();if(!$('projectMap'))return;
+  if(!p){$('projectMapInfo').textContent='Baustelle öffnen, um Karte anzuzeigen.';$('projectMap').src='about:blank';return}
+  const q=projectLocationQuery(p);
+  $('projectMapInfo').textContent=`${p.name}\n${p.location||''}${p.lat&&p.lon?`\nGPS: ${p.lat.toFixed(6)}, ${p.lon.toFixed(6)}`:''}`;
+  if(q)$('projectMap').src='https://maps.google.com/maps?q='+encodeURIComponent(q)+'&z=16&output=embed';
+}
+$('openMaps')?.addEventListener('click',()=>{const p=active();if(!p)return alert('Baustelle öffnen.');const q=projectLocationQuery(p);if(!q)return alert('Keine Adresse/GPS-Position hinterlegt.');window.open('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q),'_blank')});
+$('navigateMaps')?.addEventListener('click',()=>{const p=active();if(!p)return alert('Baustelle öffnen.');const q=projectLocationQuery(p);if(!q)return alert('Keine Adresse/GPS-Position hinterlegt.');window.open('https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q),'_blank')});
+$('useCurrentLocation')?.addEventListener('click',()=>{if(!navigator.geolocation)return alert('GPS wird von diesem Browser nicht unterstützt.');navigator.geolocation.getCurrentPosition(pos=>{$('projectLat').value=pos.coords.latitude.toFixed(6);$('projectLon').value=pos.coords.longitude.toFixed(6);alert('GPS-Position eingetragen.')},err=>alert('GPS konnte nicht gelesen werden: '+err.message),{enableHighAccuracy:true,timeout:15000})});
+
+const originalRenderProjects=renderProjects;
+renderProjects=function(){
+  originalRenderProjects();
+  renderProjectMap();
+  renderProjectAssignments();
+};
+
+function renderTimes(){
+  const p=active();$('timeProjectInfo').textContent=p?`${p.name}\n${p.location||''}`:'Bitte Baustelle öffnen.';
+  const assigned=(p?.assignments?.persons||[]);
+  const people=gpers().filter(x=>assigned.includes(x.id));
+  $('timePerson').innerHTML=people.length?people.map(x=>`<option value="${x.id}">${esc(x.name)}</option>`).join(''):'<option value="">Kein Mitarbeiter zugeordnet</option>';
+  const first=people[0];$('timeRate').value=first?.rate||0;
+  $('timeDate').value=$('timeDate').value||new Date().toISOString().slice(0,10);
+  renderTimeList();
+}
+$('timePerson')?.addEventListener('change',()=>{const p=gpers().find(x=>x.id===$('timePerson').value);$('timeRate').value=p?.rate||0});
+function timeHours(from,to,breakMin){
+  if(!from||!to)return 0;const [fh,fm]=from.split(':').map(Number),[th,tm]=to.split(':').map(Number);let min=(th*60+tm)-(fh*60+fm)-(+breakMin||0);if(min<0)min+=24*60;return Math.max(0,min/60)
+}
+$('addTime')?.addEventListener('click',()=>{
+  const p=active();if(!p)return alert('Baustelle öffnen.');
+  const personId=$('timePerson').value;if(!personId)return alert('Mitarbeiter auswählen.');
+  const h=timeHours($('timeFrom').value,$('timeTo').value,$('timeBreak').value);
+  if(h<=0)return alert('Bitte gültige Arbeitszeit eingeben.');
+  patchProject(x=>{x.timeEntries=x.timeEntries||[];x.timeEntries.push({id:'t'+Date.now(),personId,date:$('timeDate').value,from:$('timeFrom').value,to:$('timeTo').value,breakMin:+$('timeBreak').value||0,hours:h,rate:+$('timeRate').value||0,note:$('timeNote').value.trim()})});
+  renderTimeList();
+});
+function renderTimeList(){
+  const p=active(),box=$('timeList');if(!p){box.innerHTML='';return}
+  const rows=p.timeEntries||[];let hs=0,cost=0;
+  box.innerHTML=rows.map(t=>{const person=gpers().find(x=>x.id===t.personId);hs+=t.hours;cost+=t.hours*t.rate;return `<div class="person"><b>${esc(person?.name||'Mitarbeiter')}</b><br>${esc(t.date)} · ${esc(t.from)}–${esc(t.to)} · ${f(t.hours)} h<br>${money(t.rate)}/h = <b>${money(t.hours*t.rate)}</b>${t.note?'<br>'+esc(t.note):''}${t.source==='employee'?'<br><span class="badge">vom Mitarbeiter eingetragen</span>':''}<br><button class="gray small editTime" data-id="${t.id}">Korrigieren</button> <button class="danger small delTime" data-id="${t.id}">Löschen</button></div>`}).join('')||'<div class="note">Noch keine Zeiten.</div>';
+  $('timeHoursTotal').textContent=f(hs)+' h';$('timeCostTotal').textContent=money(cost);
+  box.querySelectorAll('.editTime').forEach(b=>b.addEventListener('click',()=>{
+    const current=(active()?.timeEntries||[]).find(t=>t.id===b.dataset.id);if(!current)return;
+    const date=prompt('Datum (JJJJ-MM-TT)',current.date)||current.date;
+    const from=prompt('Von (HH:MM)',current.from)||current.from;
+    const to=prompt('Bis (HH:MM)',current.to)||current.to;
+    const breakMin=+(prompt('Pause in Minuten',current.breakMin)??current.breakMin);
+    const rate=+(prompt('Stundensatz €/h',current.rate)??current.rate);
+    const note=(prompt('Tätigkeit / Notiz',current.note||'') ?? current.note ?? '');
+    const hours=timeHours(from,to,breakMin);if(hours<=0)return alert('Ungültige Zeitangabe.');
+    patchProject(x=>{const t=(x.timeEntries||[]).find(t=>t.id===b.dataset.id);if(t){Object.assign(t,{date,from,to,breakMin,hours,rate,note,status:'corrected'});}});
+    renderTimeList();
+  }));
+  box.querySelectorAll('.delTime').forEach(b=>b.addEventListener('click',()=>{patchProject(x=>x.timeEntries=(x.timeEntries||[]).filter(t=>t.id!==b.dataset.id));renderTimeList()}));
+}
+
+function renderSurvey(){const p=active();$('surveyProjectInfo').textContent=p?`${p.name}\n${p.location||''}`:'Bitte Baustelle öffnen.';renderSurveyPoints()}
+async function stableGpsPoint(){
+  if(!navigator.geolocation)throw new Error('GPS nicht unterstützt.');
+  return new Promise((resolve,reject)=>{
+    const samples=[];let watchId=null,finished=false;const started=Date.now();
+    const stop=()=>{if(watchId!==null){navigator.geolocation.clearWatch(watchId);watchId=null}};
+    const finish=()=>{
+      if(finished)return;finished=true;stop();
+      let good=samples.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)&&x.acc>0&&x.acc<=15);
+      if(good.length<5)return reject(new Error('GPS zu ungenau. Mindestens 5 brauchbare Messungen nötig. Bitte freie Sicht zum Himmel herstellen.'));
+      // Erst die genaueren Messungen verwenden, dann räumliche Ausreißer entfernen.
+      good=good.sort((a,b)=>a.acc-b.acc).slice(0,10);
+      const med=v=>{const a=[...v].sort((x,y)=>x-y),m=Math.floor(a.length/2);return a.length%2?a[m]:(a[m-1]+a[m])/2};
+      const center={lat:med(good.map(x=>x.lat)),lon:med(good.map(x=>x.lon))};
+      const d=(a,b)=>{const R=6371000,r=Math.PI/180,dy=(b.lat-a.lat)*r,dx=(b.lon-a.lon)*r*Math.cos(((a.lat+b.lat)/2)*r);return Math.hypot(dx,dy)*R};
+      const radius=Math.max(3,med(good.map(x=>x.acc))*1.5);
+      good=good.filter(x=>d(center,x)<=radius);
+      if(good.length<4)return reject(new Error('GPS springt zu stark. Punkt wurde nicht übernommen. Bitte ruhig stehen und erneut messen.'));
+      const w=good.map(x=>1/Math.max(1,x.acc*x.acc)),sum=w.reduce((a,b)=>a+b,0);
+      const lat=good.reduce((s,x,i)=>s+x.lat*w[i],0)/sum,lon=good.reduce((s,x,i)=>s+x.lon*w[i],0)/sum;
+      const spread=Math.max(...good.map(x=>d({lat,lon},x)));
+      const acc=Math.max(Math.min(...good.map(x=>x.acc)),spread,Math.sqrt(1/sum)*2);
+      resolve({lat,lon,acc,samples:good.length,time:Date.now()});
+    };
+    watchId=navigator.geolocation.watchPosition(pos=>{
+      const x={lat:pos.coords.latitude,lon:pos.coords.longitude,acc:pos.coords.accuracy,time:Date.now()};
+      samples.push(x);
+      const usable=samples.filter(v=>v.acc>0&&v.acc<=15),best=Math.min(...samples.map(v=>v.acc));
+      $('gpsStatus').textContent=`GPS stabilisiert … ${samples.length} Messungen · ${usable.length} brauchbar · beste Genauigkeit ±${Math.round(best)} m`;
+      if((samples.length>=14&&usable.length>=7)||Date.now()-started>15000)finish();
+    },err=>{if(finished)return;finished=true;stop();reject(new Error(err.message))},{enableHighAccuracy:true,timeout:18000,maximumAge:0});
+    setTimeout(finish,15500);
+  });
+}
+$('addGpsPoint')?.addEventListener('click',async()=>{
+  const p=active();if(!p)return alert('Baustelle öffnen.');$('gpsStatus').textContent='GPS wird stabilisiert – bitte einige Sekunden ruhig am Messpunkt stehen …';
+  try{const pt=await stableGpsPoint();patchProject(x=>{x.survey=x.survey||{points:[]};x.survey.points.push(pt)});$('gpsStatus').textContent=`Punkt stabil aufgenommen · ${pt.samples} gute Messungen · geschätzt ±${Math.round(pt.acc)} m`;renderSurveyPoints()}
+  catch(e){$('gpsStatus').textContent='GPS-Messung nicht übernommen: '+e.message}
+});
+$('clearGpsPoints')?.addEventListener('click',()=>{if(!active())return;if(!confirm('Aufmaß-Punkte löschen?'))return;patchProject(x=>x.survey={points:[]});renderSurveyPoints()});
+function hav(a,b){const R=6371000,toRad=x=>x*Math.PI/180,dLat=toRad(b.lat-a.lat),dLon=toRad(b.lon-a.lon),la1=toRad(a.lat),la2=toRad(b.lat);const h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+function polygonAreaMeters(points){if(points.length<3)return 0;const lat0=points.reduce((s,p)=>s+p.lat,0)/points.length*Math.PI/180;const xy=points.map(p=>({x:p.lon*Math.PI/180*6371000*Math.cos(lat0),y:p.lat*Math.PI/180*6371000}));let a=0;for(let i=0;i<xy.length;i++){const j=(i+1)%xy.length;a+=xy[i].x*xy[j].y-xy[j].x*xy[i].y}return Math.abs(a)/2}
+function renderSurveyPoints(){
+  const pts=active()?.survey?.points||[];let dist=0,uncertain=false;
+  for(let i=1;i<pts.length;i++){const d=hav(pts[i-1],pts[i]);dist+=d;if(d<((pts[i-1].acc||0)+(pts[i].acc||0)))uncertain=true}
+  $('surveyPoints').innerHTML=pts.map((p,i)=>`<div class="row"><span>P${i+1}: ${p.lat.toFixed(6)}, ${p.lon.toFixed(6)}</span><span>±${Math.round(p.acc||0)} m · ${p.samples||1} Mess.</span></div>`).join('')||'<div class="note">Noch keine GPS-Punkte.</div>';
+  $('surveyDistance').textContent=f(dist)+' m'+(uncertain?' ⚠️':'');$('surveyArea').textContent=f(polygonAreaMeters(pts))+' m²'+(uncertain?' ⚠️':'');
+  if(uncertain&&pts.length>1)$('gpsStatus').textContent='⚠️ Mindestens eine Strecke liegt innerhalb der GPS-Messunsicherheit. Für dieses kurze Maß bitte Bandmaß/Laser/RTK verwenden – die App zeigt es nicht als verlässlich an.';
+}
+
+
+const topCv=$('topCanvas'),topCtx=topCv?.getContext('2d');
+let topSelected=-1, topDrag=false, topDragOffset={x:0,y:0};
+
+function resizeTop(){if(!topCv)return;const r=topCv.getBoundingClientRect(),d=devicePixelRatio||1;topCv.width=r.width*d;topCv.height=r.height*d;topCtx.setTransform(d,0,0,d,0,0)}
+function topObjects(){return active()?.topPlan||[]}
+
+function drawShape(o,i,w,h){
+  const x=o.x*w,y=o.y*h,scale=18,L=Math.max(.2,+o.L||1)*scale,B=Math.max(.2,+o.B||1)*scale,rot=(+o.rot||0)*Math.PI/180;
+  topCtx.save();topCtx.translate(x,y);topCtx.rotate(rot);
+  topCtx.lineWidth=i===topSelected?4:2;topCtx.strokeStyle=i===topSelected?'#f28c00':'#333';
+  topCtx.fillStyle='rgba(120,120,120,.25)';
+  if(['trench','wall','pipe','drain','fence','road'].includes(o.type)){
+    topCtx.beginPath();topCtx.moveTo(-L/2,0);topCtx.lineTo(L/2,0);topCtx.stroke();
+    if(['trench','road'].includes(o.type)){topCtx.strokeRect(-L/2,-B/2,L,B)}
+  }else if(o.type==='manhole'){
+    topCtx.beginPath();topCtx.arc(0,0,Math.max(10,B/2),0,Math.PI*2);topCtx.fill();topCtx.stroke();
+  }else if(o.type==='tree'){
+    topCtx.beginPath();topCtx.arc(0,0,Math.max(12,B/2),0,Math.PI*2);topCtx.fill();topCtx.stroke();
+  }else if(o.type==='slope'){
+    topCtx.beginPath();topCtx.moveTo(-L/2,-B/2);topCtx.lineTo(L/2,-B/2);topCtx.lineTo(L/2,B/2);topCtx.closePath();topCtx.fill();topCtx.stroke();
+  }else if(o.type==='pond'){
+    topCtx.beginPath();topCtx.ellipse(0,0,L/2,B/2,0,0,Math.PI*2);topCtx.fill();topCtx.stroke();
+  }else{
+    topCtx.fillRect(-L/2,-B/2,L,B);topCtx.strokeRect(-L/2,-B/2,L,B);
+  }
+  topCtx.fillStyle='#222';topCtx.font='12px system-ui';topCtx.fillText(o.label||o.type,-L/2+4,-B/2+14);
+  topCtx.restore();
+}
+
+function drawTop(){
+  if(!topCv)return;resizeTop();const w=topCv.clientWidth,h=topCv.clientHeight;topCtx.clearRect(0,0,w,h);
+  topCtx.strokeStyle='#ddd';topCtx.lineWidth=1;
+  for(let x=0;x<w;x+=40){topCtx.beginPath();topCtx.moveTo(x,0);topCtx.lineTo(x,h);topCtx.stroke()}
+  for(let y=0;y<h;y+=40){topCtx.beginPath();topCtx.moveTo(0,y);topCtx.lineTo(w,y);topCtx.stroke()}
+  topCtx.fillStyle='#777';topCtx.font='11px system-ui';topCtx.fillText('Raster ca. 2 m',8,15);
+  topObjects().forEach((o,i)=>drawShape(o,i,w,h));
+}
+
+function topHit(px,py){
+  const objs=topObjects(),w=topCv.clientWidth,h=topCv.clientHeight,scale=18;
+  for(let i=objs.length-1;i>=0;i--){
+    const o=objs[i],x=o.x*w,y=o.y*h,L=Math.max(.2,+o.L||1)*scale,B=Math.max(.2,+o.B||1)*scale;
+    const dx=px-x,dy=py-y,rot=-(+o.rot||0)*Math.PI/180;
+    const rx=dx*Math.cos(rot)-dy*Math.sin(rot),ry=dx*Math.sin(rot)+dy*Math.cos(rot);
+    if(Math.abs(rx)<=L/2+12 && Math.abs(ry)<=Math.max(B/2,14)+12)return i;
+  }
+  return -1;
+}
+
+topCv?.addEventListener('pointerdown',e=>{
+  const p=active();if(!p)return alert('Baustelle öffnen.');
+  const r=topCv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;
+  const hit=topHit(px,py);
+  if(hit>=0){
+    topSelected=hit;topDrag=true;
+    const o=topObjects()[hit];topDragOffset={x:px-o.x*r.width,y:py-o.y*r.height};
+    topCv.setPointerCapture?.(e.pointerId);drawTop();return;
+  }
+  patchProject(x=>{x.topPlan=x.topPlan||[];x.topPlan.push({
+    type:$('topObject').value,label:$('topLabel').value.trim(),
+    L:+$('topL').value||1,B:+$('topB').value||1,H:+$('topH').value||.5,
+    rot:+$('topRot').value||0,x:px/r.width,y:py/r.height
+  })});
+  topSelected=topObjects().length-1;drawTop();
+});
+
+topCv?.addEventListener('pointermove',e=>{
+  if(!topDrag||topSelected<0)return;
+  const r=topCv.getBoundingClientRect(),px=e.clientX-r.left,py=e.clientY-r.top;
+  patchProject(p=>{const o=p.topPlan[topSelected];if(o){o.x=Math.min(.98,Math.max(.02,(px-topDragOffset.x)/r.width));o.y=Math.min(.98,Math.max(.02,(py-topDragOffset.y)/r.height));}});
+  drawTop();
+});
+topCv?.addEventListener('pointerup',()=>topDrag=false);
+topCv?.addEventListener('pointercancel',()=>topDrag=false);
+
+$('rotateTopLeft')?.addEventListener('click',()=>{if(topSelected<0)return alert('Objekt auswählen.');patchProject(p=>p.topPlan[topSelected].rot=((+p.topPlan[topSelected].rot||0)-15)%360);drawTop()});
+$('rotateTopRight')?.addEventListener('click',()=>{if(topSelected<0)return alert('Objekt auswählen.');patchProject(p=>p.topPlan[topSelected].rot=((+p.topPlan[topSelected].rot||0)+15)%360);drawTop()});
+$('deleteTopObject')?.addEventListener('click',()=>{if(topSelected<0)return;patchProject(x=>x.topPlan.splice(topSelected,1));topSelected=-1;drawTop()});
+$('clearTopPlan')?.addEventListener('click',()=>{if(!confirm('Draufsicht leeren?'))return;patchProject(x=>x.topPlan=[]);topSelected=-1;drawTop()});
+$('saveTopPlan')?.addEventListener('click',()=>alert('Lageplan ist in der aktuellen Baustelle gespeichert.'));
+const oldLoadPlan=loadPlan;
+loadPlan=function(){oldLoadPlan();drawTop()};
+
+function employeeSnapshot(personId){
+  const person=gpers().find(p=>p.id===personId);
+  if(!person)return null;
+
+  const projects=gp().filter(pr=>{
+    const byDirect=person.projectId===pr.id;
+    const byList=(pr.assignments?.persons||[]).includes(personId);
+    return byDirect||byList;
+  }).map(pr=>({
+    id:pr.id,
+    name:pr.name,
+    customer:pr.customer||'',
+    location:pr.location||'',
+    lat:pr.lat||null,
+    lon:pr.lon||null,
+    description:pr.description||'',
+    photos:(pr.photos||[]).map(ph=>({data:ph.data,note:ph.note||ph.name||''})),
+    plan:pr.plan||null,
+    topPlan:pr.topPlan||[],
+    timeEntries:(pr.timeEntries||[]).filter(t=>t.personId===personId)
+  }));
+
+  return {
+    person:{
+      id:person.id,
+      name:person.name,
+      role:person.role||'',
+      profession:person.profession||'',
+      skills:person.skills||'',
+      licenses:person.licenses||'',
+      machines:person.machines||'',
+      qualifications:person.qualifications||''
+    },
+    projects
+  };
+}
+
+function renderEmployeeView(snapshot){
+  if(!snapshot){$('employeeIdentity').textContent='Keine Mitarbeiterdaten.';$('employeeProjects').innerHTML='';return}
+  const p=snapshot.person;
+  $('employeeIdentity').textContent=
+`${p.name}
+${p.role||''}${p.profession?' · '+p.profession:''}
+${p.skills?'Kenntnisse: '+p.skills:''}
+${p.licenses?'Führerschein: '+p.licenses:''}
+${p.qualifications?'Qualifikationen: '+p.qualifications:''}`;
+
+  $('employeeProjects').innerHTML=snapshot.projects.length?snapshot.projects.map(pr=>{
+    const loc=pr.lat&&pr.lon?`${pr.lat},${pr.lon}`:pr.location;
+    const photos=pr.photos?.length?`<div class="photo-grid">${pr.photos.map(ph=>`<div class="photo-card"><img src="${ph.data}" alt="Baustellenbild"><div class="note">${esc(ph.note)}</div></div>`).join('')}</div>`:'<div class="note">Keine Bilder.</div>';
+    const times=pr.timeEntries?.length?pr.timeEntries.map(t=>`<div class="row"><span>${esc(t.date)} · ${esc(t.from)}–${esc(t.to)}</span><b>${f(t.hours)} h</b></div>`).join(''):'<div class="note">Keine eigenen Zeiten eingetragen.</div>';
+    return `<div class="card">
+      <h2>${esc(pr.name)}</h2>
+      <div class="chat">${esc(pr.description||'Keine Beschreibung hinterlegt.')}</div>
+      <div style="margin-top:10px"><b>Baustelle:</b> ${esc(pr.location||'–')}</div>
+      ${loc?`<button class="wide orange empNav" data-loc="${encodeURIComponent(loc)}">🗺️ Navigation mit Google Maps</button>`:''}
+      <h3 style="margin-top:14px">Bilder</h3>${photos}
+      <h3 style="margin-top:14px">Planung</h3><div class="chat">${esc(pr.plan?.result||'Kein 3D-Plan hinterlegt.')}</div>
+      <h3 style="margin-top:14px">Meine Zeiten</h3>${times}
+      <div class="grid empTimeForm" data-project="${pr.id}" style="margin-top:10px">
+        <div><label>Datum</label><input class="empDate" type="date"></div>
+        <div><label>Von</label><input class="empFrom" type="time"></div>
+        <div><label>Bis</label><input class="empTo" type="time"></div>
+        <div><label>Pause min</label><input class="empBreak" type="number" value="30"></div>
+        <div class="full"><label>Tätigkeit</label><input class="empNote" placeholder="z. B. Aushub / Pflaster"></div>
+      </div>
+      <button class="wide orange empAddTime" data-project="${pr.id}">⏱️ Meine Arbeitszeit eintragen</button>
+    </div>`;
+  }).join(''):'<div class="card"><div class="note">Dir ist aktuell keine Baustelle zugeordnet.</div></div>';
+
+  $('employeeProjects').querySelectorAll('.empNav').forEach(b=>b.addEventListener('click',()=>{
+    window.open('https://www.google.com/maps/dir/?api=1&destination='+b.dataset.loc,'_blank');
+  }));
+  $('employeeProjects').querySelectorAll('.empAddTime').forEach(b=>b.addEventListener('click',()=>{
+    const form=b.previousElementSibling;
+    const projectId=b.dataset.project;
+    const from=form.querySelector('.empFrom').value,to=form.querySelector('.empTo').value;
+    const br=+form.querySelector('.empBreak').value||0;
+    const h=timeHours(from,to,br);
+    if(!from||!to||h<=0)return alert('Bitte gültige Arbeitszeit eingeben.');
+    const date=form.querySelector('.empDate').value||new Date().toISOString().slice(0,10);
+    const note=form.querySelector('.empNote').value.trim();
+    const personId=snapshot.person.id;
+    const rate=gpers().find(x=>x.id===personId)?.rate||0;
+    const projects=gp(),pr=projects.find(x=>x.id===projectId);
+    if(pr){
+      pr.timeEntries=pr.timeEntries||[];
+      pr.timeEntries.push({id:'et'+Date.now(),personId,date,from,to,breakMin:br,hours:h,rate,note,source:'employee',status:'submitted'});
+      sp(projects);
+      alert('Arbeitszeit gespeichert. Der Chef sieht sie sofort und kann sie korrigieren.');
+      renderEmployeeView(employeeSnapshot(personId));
+    }
+  }));
+  $('employeeProjects').querySelectorAll('.empDate').forEach(i=>{if(!i.value)i.value=new Date().toISOString().slice(0,10)});
+}
+
+$('previewEmployee')?.addEventListener('click',()=>{if(!requirePro('Der Mitarbeiterzugang'))return;
+  const id=$('invitePerson').value;
+  if(!id)return alert('Bitte Mitarbeiter wählen.');
+  const snap=employeeSnapshot(id);
+  renderEmployeeView(snap);
+  go('employeeview');
+});
+
+$('employeeBack')?.addEventListener('click',()=>go('company'));
+
+$('createInvite')?.addEventListener('click',async()=>{if(!requirePro('Der Mitarbeiterzugang'))return;
+  const id=$('invitePerson').value;
+  if(!id)return alert('Bitte Mitarbeiter wählen.');
+  const server=($('shareServer').value||'').replace(/\/+$/,'');
+  if(!server){
+    $('inviteResult').textContent='Für eine echte Einladung auf ein anderes Handy brauchst du einen gemeinsamen Freigabe-Server. Trage dessen Adresse ein. Ohne Server kannst du die Mitarbeiteransicht über „testen“ ansehen.';
+    return;
+  }
+
+  const snapshot=employeeSnapshot(id);
+  $('inviteResult').textContent='Einladung wird erstellt...';
+
+  try{
+    const r=await fetch(server+'/api/invite',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(snapshot)
+    });
+    const j=await r.json();
+    if(!r.ok)throw new Error(j.error||'Serverfehler');
+    const url=server+'/employee.html?token='+encodeURIComponent(j.token);
+    const invites=JSON.parse(localStorage.getItem('bpInvites')||'{}');invites[id]={token:j.token,server};localStorage.setItem('bpInvites',JSON.stringify(invites));
+    $('inviteResult').innerHTML=`Einladung erstellt:<br><br><a href="${url}" target="_blank">${esc(url)}</a><br><br>Der Mitarbeiter darf seine eigenen Arbeitszeiten eintragen. Firma, Angebote und Stammdaten bleiben gesperrt.`;
+  }catch(e){
+    $('inviteResult').textContent='Einladung konnte nicht erstellt werden: '+e.message;
+  }
+});
+
+
+$('syncEmployeeTimes')?.addEventListener('click',async()=>{if(!requirePro('Die Mitarbeiter-Zeitsynchronisierung'))return;
+  const invites=JSON.parse(localStorage.getItem('bpInvites')||'{}');
+  const entries=Object.entries(invites);
+  if(!entries.length)return alert('Noch keine Server-Einladungen gespeichert.');
+  let imported=0;
+  for(const [personId,inv] of entries){
+    try{
+      const r=await fetch(inv.server+'/api/invite/'+encodeURIComponent(inv.token));
+      const snap=await r.json();if(!r.ok)continue;
+      const projects=gp();
+      (snap.projects||[]).forEach(remote=>{
+        const local=projects.find(p=>p.id===remote.id);if(!local)return;
+        local.timeEntries=local.timeEntries||[];
+        (remote.timeEntries||[]).forEach(t=>{
+          if(!local.timeEntries.some(x=>x.id===t.id)){local.timeEntries.push(t);imported++}
+        });
+      });
+      sp(projects);
+    }catch(e){}
+  }
+  alert(imported?`${imported} neue Mitarbeiter-Zeiteinträge übernommen.`:'Keine neuen Zeiteinträge.');
+  renderTimeList();
+});
+
+const originalRenderCompanyForInvite=renderCompany;
+renderCompany=function(){
+  originalRenderCompanyForInvite();
+  renderInvitePeople();
+};
+
+window.addEventListener('resize',()=>{if(!$('planner').classList.contains('hidden'))drawPlan()});
+renderProjects();renderCompany();renderAssignments();refreshHome();drawPlan();
+
+window.setBauPlanerProState = function(active){
+  proStateKnown=true;
+  proActive=!!active;
+  localStorage.setItem('bauplaner_pro_active', proActive ? '1' : '0');
+  const el=document.getElementById('proStatus');
+  const badge=document.getElementById('licenseBadge');
+  const buy=document.getElementById('buyProButton');
+  if(el)el.innerHTML=proActive?'<b>✅ Pro-Abo aktiv – alle Pro-Funktionen freigeschaltet.</b>':'Kostenlose Version aktiv – Pro-Funktionen sind gesperrt.';
+  if(badge)badge.textContent=proActive?'PRO':'FREE';
+  if(buy)buy.classList.toggle('hidden',proActive);
+};
+// Browser-/Render-Testmodus: Nur die Web-Vorschau auf Render wird für Entwicklung als PRO freigeschaltet.
+// In der Android-App bleibt Google-Play-Billing maßgeblich.
+const isRenderDevPreview = location.hostname === 'bauplaner-pro.onrender.com';
+window.setBauPlanerProState(isRenderDevPreview);
+</script>
+</body>
+</html>
